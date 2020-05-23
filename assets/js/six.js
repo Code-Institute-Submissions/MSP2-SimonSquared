@@ -3,7 +3,8 @@ var game =[];
 var counter = 0
 var j = 0
 var i = 0
-var demo = 0
+  var demo = 0
+  $(".circle2").hide();
 
 $(".circle").children().children().click(function(){
 
@@ -38,13 +39,14 @@ $(".circle").children().children().click(function(){
     $(this).fadeOut(500);
     $(this).fadeIn(500);
 
-game6()
+    game6()
     } else if (index == game[j]) {
     $(this).fadeOut(500);
     $(this).fadeIn(500);
     j = j + 1
     } else {
         $("#startnewgame6").fadeIn(1000);
+        $(".circle2").hide();
         game =[]
         counter = 0
         j = 0
@@ -57,6 +59,7 @@ game6()
 
 
 $("#startnewgame6").click(function(){
+    demo = 1
     game = []
     $(this).fadeOut(500);
     setTimeout(function(){
@@ -91,6 +94,10 @@ $("#startnewgame6").click(function(){
         break;
     };
     console.log(game)
+    setTimeout(function(){
+      $(".circle2").show();
+      demo = 0;
+      }, 2000);
 }, 1000);
 
 });
@@ -137,6 +144,9 @@ function game6(){
     setTimeout(function(){
     i = 0
     lightUp()
+    setTimeout(function(){
+      $(".circle2").hide();
+      }, 1000);
 }, 500);
 };
 
@@ -175,7 +185,10 @@ function newColor(){
     console.log(game)
     console.log(`counter = ${counter}`)
     j = 0
-    demo = 0
+    setTimeout(function(){
+      $(".circle2").show();
+      demo = 0;
+      }, 2000);
     }, 1700);
 };
 

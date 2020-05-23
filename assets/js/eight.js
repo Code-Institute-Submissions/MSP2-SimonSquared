@@ -3,7 +3,8 @@ var game =[];
 var counter = 0
 var j = 0
 var i = 0
-var demo = 0
+  var demo = 0
+  $(".circle2").hide();
 
 
 $(".circle").children().children().click(function(){
@@ -42,15 +43,16 @@ $(".circle").children().children().click(function(){
     }
     console.log(index);
     if (index == game[j] && game.length == j + 1) {
-    $(this).fadeOut(500);
-    $(this).fadeIn(500);
+    $(this).fadeOut(250);
+    $(this).fadeIn(250);
     game8()
     } else if (index == game[j]) {
-    $(this).fadeOut(500);
-    $(this).fadeIn(500);
+    $(this).fadeOut(250);
+    $(this).fadeIn(250);
     j = j + 1
     } else {
         $("#startnewgame8").fadeIn(1000);
+        $(".circle2").hide();
         game =[]
         counter = 0
         j = 0
@@ -63,6 +65,7 @@ $(".circle").children().children().click(function(){
 
 
 $("#startnewgame8").click(function(){
+    demo = 1
     game = []
     $(this).fadeOut(500);
     setTimeout(function(){
@@ -105,6 +108,10 @@ $("#startnewgame8").click(function(){
         break;
     };
     console.log(game)
+        setTimeout(function(){
+      $(".circle2").show();
+      demo = 0;
+      }, 2000);
 }, 1000);
 
 });
@@ -159,6 +166,9 @@ function game8(){
     setTimeout(function(){
     i = 0
     lightUp()
+    setTimeout(function(){
+      $(".circle2").hide();
+      }, 1000);
 }, 500);
 };
 
@@ -205,7 +215,10 @@ function newColor(){
     console.log(game)
     console.log(`counter = ${counter}`)
     j = 0;
-    demo = 0;
+    setTimeout(function(){
+      $(".circle2").show();
+      demo = 0;
+      }, 2000);
     }, 1700);
 };
 

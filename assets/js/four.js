@@ -4,6 +4,7 @@ $(document).ready(function () {
   var j = 0;
   var i = 0;
   var demo = 0
+  $(".circle2").hide();
 
   $(".circle")
     .children()
@@ -39,6 +40,7 @@ $(document).ready(function () {
           j = j + 1;
         } else {
           $("#startnewgame4").fadeIn(1000);
+        $(".circle2").hide();
           game = [];
           counter = 0;
           j = 0;
@@ -47,6 +49,7 @@ $(document).ready(function () {
     });
 
   $("#startnewgame4").click(function () {
+    demo = 1
     game = [];
     $(this).fadeOut(500);
     setTimeout(function () {
@@ -72,6 +75,10 @@ $(document).ready(function () {
           break;
       }
       console.log(game);
+        setTimeout(function(){
+      $(".circle2").show();
+      demo = 0;
+      }, 2000);
     }, 1000);
   });
 
@@ -106,9 +113,13 @@ $(document).ready(function () {
 
   function game4() {
       demo = 1
+
     setTimeout(function () {
       i = 0;
       lightUp();
+    setTimeout(function(){
+      $(".circle2").hide();
+      }, 1000);
     }, 500);
   }
 
@@ -139,7 +150,11 @@ $(document).ready(function () {
       console.log(game);
       console.log(`counter = ${counter}`);
       j = 0;
+      
+      setTimeout(function(){
+      $(".circle2").show();
       demo = 0;
+      }, 2000);
     }, 1700);
   }
 });
