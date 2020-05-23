@@ -10,7 +10,10 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
     <script src="assets/js/main.js"></script>
 </head>
 <body>
@@ -41,25 +44,24 @@
       <div class="container-fluid simon">
             <div class="row justify-content-lg-center no-gutters">
                 <div class="circle">
-                <div class="origin-4-red">
-                <div class="red-4-inner"></div> 
-                </div>
-                <div class="origin-4-blue">          
-                <div class="blue-4-inner"></div>
-                </div>
-                <div class="origin-4-green">          
-                <div class="green-4-inner"></div>
-                </div>
-                <div class="origin-4-yellow">          
-                <div class="yellow-4-inner"></div>
-                </div>
-            </div>  
+                    <div class="origin-4-red">               
+                    <div class="red-4-inner"></div> 
+                    </div>
+                    <div class="origin-4-blue">          
+                    <div class="blue-4-inner"></div>
+                    </div>
+                    <div class="origin-4-green">          
+                    <div class="green-4-inner"></div>
+                    </div>
+                    <div class="origin-4-yellow">          
+                    <div class="yellow-4-inner"></div>
+                    </div>
+                    <div id="startnewgame">
+                            <h6>START NEW GAME</h6>           
+                    </div> 
+                </div>  
             </div>
         </div>
-
-            <div id="startnewgame">
-                        <span><h6>START NEW GAME</h6></span>                   
-                    </div>  
     </main>
 
     <footer>
@@ -67,7 +69,7 @@
             <div class="row justify-content-lg-center no-gutters">
                  <div class="col-12">
                         <div>
-                            <span id="about"><h6>?</h6></span>                      
+                            <span id="about" onclick="test()"><h6>?</h6></span>                      
                         </div>
                 </div>          
             </div>
