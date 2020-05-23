@@ -103,6 +103,19 @@ span {
   margin: 0 auto;
   overflow: hidden;
 }
+
+.circle2 {
+  position: absolute;
+  z-index:0;
+  width: 380px;
+  height: 380px;
+  background-color: white;
+  clip-path: circle();
+  margin: 0 auto;
+  margin-top:-15px;
+  overflow: hidden;
+}
+
 /* ---SIMON FOUR TILES */
 .origin-4-red {
   position: absolute;
