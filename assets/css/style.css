@@ -81,7 +81,7 @@ span {
   margin-bottom: 20px;
 }
 
-#startnewgame {
+#startnewgame4, #startnewgame6, #startnewgame8 {
   /* display: none; */
   background-color: rgba(255, 255, 255, 0.8);
   position: absolute;
@@ -90,7 +90,7 @@ span {
   left: 50%;
   transform: translate(-50%,-50%);
 }
-#startnewgame:hover {
+#startnewgame4:hover, #startnewgame6:hover, #startnewgame8:hover {
     background-color: rgba(255, 255, 255, 1);
 }
 
