@@ -7,6 +7,8 @@ var counter = 0
 var j = 0
 var i = 0
   var demo = 0
+    var turn = 0;
+  var turner;
     $(".circle2").hide();
     $("#gameover").hide();
     $(".aboutfield").hide();  
@@ -48,7 +50,6 @@ $(".circle").children().children().click(function(){
         index = 6;
         break;
     }
-    console.log(index);
     if (index == game[j] && game.length == j + 1) {
     $(this).fadeOut(500);
     $(this).fadeIn(500);
@@ -59,6 +60,11 @@ $(".circle").children().children().click(function(){
     $(this).fadeIn(500);
     j = j + 1
     } else {
+        angle = 0;
+        turn = 0;
+        clearInterval(turner)
+        $(".circle").css("transform", "rotate(0deg)");
+        $(".turnchallenge").html("Difficulty");
         $("#gameover").fadeIn(1000);
         $(".circle2").hide();
         setTimeout(function(){
@@ -115,7 +121,6 @@ $("#startnewgame6").click(function(){
         $(".orange-6-inner").fadeIn(1000);
         break;
     };
-    console.log(game)
     setTimeout(function(){
       $(".circle2").show();
       $(".circle").children().children().addClass("point");
@@ -207,8 +212,6 @@ function newColor(){
         break;
     };
     counter = counter + 1
-    console.log(game)
-    console.log(`counter = ${counter}`)
     j = 0
     setTimeout(function(){
       $(".circle2").show();
@@ -217,5 +220,33 @@ function newColor(){
       }, 2000);
     }, 1700);
 };
+
+$(".turnchallenge").mouseover(function () {
+ $(".turnchallenge").html("Press for secret challenge")});
+$(".turnchallenge").mouseleave(function() {
+    if (turn == 0){
+    $(".turnchallenge").html("Difficulty")}
+});
+ $(".turnchallenge").click(function () {
+$(".turnchallenge").html("Press to stop rotation");
+    if (turn ==  0) {
+     var angle = 0;
+     $(".circle").addClass("rotate");
+turner = setInterval(function() {
+    $(".rotate")
+        .css('-webkit-transform', 'rotate('+angle+'deg)')
+        .css('-moz-transform', 'rotate('+angle+'deg)')
+        .css('-ms-transform', 'rotate('+angle+'deg)');
+    angle++; angle++; angle++;
+}, 50);
+turn = 1} else {
+angle = 0;
+turn = 0;
+clearInterval(turner)
+$(".circle").css("transform", "rotate(0deg)");
+$(".turnchallenge").html("Difficulty");
+}
+ });
+
 
 })

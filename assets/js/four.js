@@ -3,7 +3,9 @@ $(document).ready(function () {
   var counter = 0;                              //setting new game counter
   var j = 0;                                    //setting new counter for checking player clicks with game array
   var i = 0;                                    //setting counter for looping through array and lighting up the board
-  var demo = 0                                  //setting a variable that determines weather a demo is in proces (demo = 1) or not; prevents player from clicking while demo is in proces. 
+  var demo = 0;                                 //setting a variable that determines weather a demo is in proces (demo = 1) or not; prevents player from clicking while demo is in proces. 
+  var turn = 0;
+  var turner;
   $(".circle2").hide();                         //hides the circular edge that indicates that it's the players turn
    $("#gameover").hide();                       //hides game over indicator
     $(".aboutfield").hide();                    //hides aboutfield information div
@@ -25,8 +27,7 @@ $(document).ready(function () {
     .click(function () {                        //applies to all colored circle slices
       if (game.length == 0 || demo == 1) {      //game hasn't started or demo is in proces: do nothing on click
       } else {
-        var color = $(this).attr("class").split(' ')[0];      //get the class name of the clicked element and match the color to a number (index) using the switch statement.
-        console.log(color)
+         var color = $(this).attr("class").split(' ')[0];   
         var index;
         switch (color) {
           case "red-4-inner":
@@ -42,7 +43,6 @@ $(document).ready(function () {
             index = 4;
             break;
         }
-        console.log(index);
         if (index == game[j] && game.length == j + 1) { //check if the index of tile clicked matches the index in the array sequence AND if it's the last in the array
           $(this).fadeOut(500);                         
           $(this).fadeIn(500);
@@ -52,6 +52,11 @@ $(document).ready(function () {
           $(this).fadeIn(500);
           j = j + 1;                                    //increments j counter: for the next click it will check the next item in the game array
     } else {
+        angle = 0;
+        turn = 0;
+        clearInterval(turner)
+        $(".circle").css("transform", "rotate(0deg)");
+       $(".turnchallenge").html("Difficulty");
         $("#gameover").fadeIn(1000);                    //player made a mistake: game over is shown, prompt for new game
         $(".circle2").hide();
         setTimeout(function(){
@@ -96,9 +101,6 @@ $(document).ready(function () {
           $(".yellow-4-inner").fadeIn(1000);
           break;
       }
-    //   counter = counter + 1;
-
-      console.log(game);
         setTimeout(function(){                          //sets time out before "player turn" circle shows, so that it shows after the tile has faded back in.
       $(".circle2").show();
     $(".circle").children().children().addClass("point");                //changes cursor properties to indicate tiles are clickable                            
@@ -177,8 +179,6 @@ $(document).ready(function () {
           break;
       }
       counter = counter + 1;                        //sets counter to the last game array item, for loop matching purposes in other function.
-      console.log(game);
-      console.log(`counter = ${counter}`);
       j = 0;                                        //resets j for matching player clicks to game array in new turn.
       
       setTimeout(function(){
@@ -187,5 +187,38 @@ $(document).ready(function () {
       $(".circle").children().children().addClass("point"); //changes cursor properties to indicate that tiles are clickable.
       }, 2000);
     }, 1700);
-  }
+  };
+
+$(".turnchallenge").mouseover(function () {
+ $(".turnchallenge").html("Press for secret challenge")});
+$(".turnchallenge").mouseleave(function() {
+    if (turn == 0){
+    $(".turnchallenge").html("Difficulty")}
 });
+ $(".turnchallenge").click(function () {
+ $(".turnchallenge").html("Press to stop rotation");
+    if (turn ==  0) {
+     var angle = 0;
+     $(".circle").addClass("rotate");
+turner = setInterval(function() {
+    $(".rotate")
+        .css('-webkit-transform', 'rotate('+angle+'deg)')
+        .css('-moz-transform', 'rotate('+angle+'deg)')
+        .css('-ms-transform', 'rotate('+angle+'deg)');
+    angle++; angle++; angle++;
+}, 50);
+turn = 1} else {
+angle = 0;
+turn = 0;
+clearInterval(turner)
+$(".circle").css("transform", "rotate(0deg)");
+$(".turnchallenge").html("Difficulty");
+}
+ });
+
+
+
+
+
+});
+

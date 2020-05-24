@@ -55,9 +55,14 @@ main {
 .point:hover {
     cursor:pointer;
 }
+#aboutdiv:hover{
+    cursor:pointer;
+}
 #about h6 {
   border: none;
   padding-top: 15px;
+  cursor:pointer;
+  
 }
 
 #about h6:hover {
@@ -65,6 +70,7 @@ main {
   padding-top: 15px;
   font-size:200%;
   padding:7px 0 0 0;
+  cursor:pointer;
 }
 
 #about {
@@ -73,9 +79,11 @@ main {
   height: 50px;
   width: 50px;
   background-color: rgba(255,255,255,0.8);
+    cursor:pointer;
 }
 #about:hover {
     background-color:white;
+    cursor:pointer;
 }
 
 .aboutfield {
@@ -126,6 +134,10 @@ main {
 span {
   display: inline-block;
   margin-bottom: 20px;
+}
+
+.turnchallenge:hover {
+cursor:pointer;
 }
 
 #startnewgame4, #startnewgame6, #startnewgame8 {
@@ -631,6 +643,10 @@ margin-top:-20px;
 
 #aboutdiv {
     text-align:right;
+      cursor:pointer;
+}
+#aboutdiv:hover {
+      cursor:pointer;
 }
 
 #about {
