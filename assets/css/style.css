@@ -14,7 +14,8 @@ h1 {
   margin-bottom: 20px;
 }
 
-h6, h3 {
+h6,
+h3 {
   padding: 10px 20px;
   border: solid 1px black;
   margin: 0px;
@@ -53,24 +54,23 @@ main {
 }
 
 .point:hover {
-    cursor:pointer;
+  cursor: pointer;
 }
-#aboutdiv:hover{
-    cursor:pointer;
+#aboutdiv:hover {
+  cursor: pointer;
 }
 #about h6 {
   border: none;
   padding-top: 15px;
-  cursor:pointer;
-  
+  cursor: pointer;
 }
 
 #about h6:hover {
   border: none;
   padding-top: 15px;
-  font-size:200%;
-  padding:7px 0 0 0;
-  cursor:pointer;
+  font-size: 200%;
+  padding: 7px 0 0 0;
+  cursor: pointer;
 }
 
 #about {
@@ -78,43 +78,43 @@ main {
   border-radius: 50%;
   height: 50px;
   width: 50px;
-  background-color: rgba(255,255,255,0.8);
-    cursor:pointer;
+  background-color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
 }
 #about:hover {
-    background-color:white;
-    cursor:pointer;
+  background-color: white;
+  cursor: pointer;
 }
 
 .aboutfield {
-    background-color:rgba(255,255,255,0.95);
-    border:solid 1px black;
-    width:95vw;
-    height:72vh;
-    position:absolute;
-    z-index:300;
-    margin-top:-120px;
-    padding:1rem;
-    font-size:12px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: solid 1px black;
+  width: 95vw;
+  height: 72vh;
+  position: absolute;
+  z-index: 300;
+  margin-top: -120px;
+  padding: 1rem;
+  font-size: 12px;
 }
 
 #exit {
-    position:absolute;
-    top:1rem;
-    right:1rem;
-    color:rgb(100, 100, 100);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: rgb(100, 100, 100);
 }
 
 #exit:hover {
-    color:black;
+  color: black;
 }
 
 #authorinfo {
-    position:absolute;
-    font-size:10px;
-    margin-right:1rem;
-    bottom:0;
-    right:0;
+  position: absolute;
+  font-size: 10px;
+  margin-right: 1rem;
+  bottom: 0;
+  right: 0;
 }
 .dif {
   background-color: rgba(0, 0, 0, 0.2);
@@ -137,59 +137,61 @@ span {
 }
 
 .turnchallenge:hover {
-cursor:pointer;
+  cursor: pointer;
 }
 
-#startnewgame4, #startnewgame6, #startnewgame8 {
+#startnewgame4,
+#startnewgame6,
+#startnewgame8 {
   /* display: none; */
   background-color: rgba(255, 255, 255, 0.8);
   position: absolute;
   z-index: 100;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
-  text-align:center;
-  
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
-#startnewgame4:hover, #startnewgame6:hover, #startnewgame8:hover {
-    background-color: rgba(255, 255, 255, 1);
-    cursor:pointer;
+#startnewgame4:hover,
+#startnewgame6:hover,
+#startnewgame8:hover {
+  background-color: rgba(255, 255, 255, 1);
+  cursor: pointer;
 }
 #counter {
   position: absolute;
   z-index: 99;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 
-    font-family: "Changa", sans-serif;
-    font-size:500%;
-    color:black;
-    text-align:center;
-    border:none;
-    padding:0;
+  font-family: "Changa", sans-serif;
+  font-size: 500%;
+  color: black;
+  text-align: center;
+  border: none;
+  padding: 0;
 }
 #counter:hover {
-    cursor:default;
+  cursor: default;
 }
-
 
 #gameover {
   /* display: none; */
   background-color: rgba(0, 0, 0, 1);
-  width:300px;
+  width: 300px;
   position: absolute;
   z-index: 100;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
-#gameover h3{
-    font-size:300%;
-    color:white;
-    text-align:center;
-    cursor:default;
+#gameover h3 {
+  font-size: 300%;
+  color: white;
+  text-align: center;
+  cursor: default;
 }
 
 .circle {
@@ -204,19 +206,19 @@ cursor:pointer;
 
 .circle2 {
   position: absolute;
-  z-index:0;
+  z-index: 0;
   width: 380px;
   height: 380px;
   background-color: white;
   clip-path: circle();
   margin: 0 auto;
-  margin-top:-15px;
+  margin-top: -15px;
   overflow: hidden;
 }
 
 /* ---SIMON FOUR TILES */
 .inner {
-    /* position: absolute;
+  /* position: absolute;
   bottom: 0;   
   right: 0; */
   width: 175px;
@@ -549,169 +551,162 @@ footer {
 }
 
 /* MEDIAQUERIES */
-@media (min-width:576px){
-.aboutfield {
-    font-size:14px;
-}
+@media (min-width: 576px) {
+  .aboutfield {
+    font-size: 14px;
+  }
 }
 
 /* small iphone 5se */
-@media (max-width:320px){
-    h1 {
-        margin-bottom:5px;
-    }
+@media (max-width: 320px) {
+  h1 {
+    margin-bottom: 5px;
+  }
 
-.circle2{
-   width: 320px;
-  height: 320px;
-}
-.circle {
-    width:290px;
-    height:290px;
-}
+  .circle2 {
+    width: 320px;
+    height: 320px;
+  }
+  .circle {
+    width: 290px;
+    height: 290px;
+  }
 
-.inner {
-    width:145px;
-    height:145px;
-}
-main {
-  height: auto;
-padding-top: 0px;
-}
+  .inner {
+    width: 145px;
+    height: 145px;
+  }
+  main {
+    height: auto;
+    padding-top: 0px;
+  }
 
-#startnewgame4, #startnewgame6, #startnewgame8 {
-width:200px;
-  
-}
-
+  #startnewgame4,
+  #startnewgame6,
+  #startnewgame8 {
+    width: 200px;
+  }
 }
 /* ipad size */
-@media (min-width:768px) and (min-height:900px) {
+@media (min-width: 768px) and (min-height: 900px) {
+  h1 {
+    font-size: 375%;
+    margin-bottom: 0;
+  }
+  .circle2 {
+    width: 730px;
+    height: 730px;
+  }
+  .circle {
+    width: 700px;
+    height: 700px;
+  }
 
-h1 {
-    font-size:375%;
-    margin-bottom:0;
+  .inner {
+    width: 350px;
+    height: 350px;
+  }
+  .aboutfield {
+    width: 95vw;
+    height: 80vh;
+    font-size: 24px;
+  }
+  .aboutfield h4 {
+    font-size: 200%;
+  }
 }
-.circle2{
-   width: 730px;
-  height: 730px;
-}
-.circle {
-    width:700px;
-    height:700px;
-}
-
-.inner {
-    width:350px;
-    height:350px;
-}
-.aboutfield {
-    width:95vw;
-    height:80vh;
-    font-size:24px;
-}
-.aboutfield h4 {
-    font-size:200%;
-}
-
-}
-
-
 
 /* desktop size */
-@media (min-width:992px) {
-
-h1 {
-    text-align:left;
+@media (min-width: 992px) {
+  h1 {
+    text-align: left;
     margin: 30px 30px 20px 30px;
-}
+  }
 
-h5 {
-    text-align:right;
-    margin:40px 0px;
-}
+  h5 {
+    text-align: right;
+    margin: 40px 0px;
+  }
 
-nav {
+  nav {
     margin: 30px 0px;
-}
+  }
 
-main {
-  height: auto;
-padding-top: 0px;
-margin-top:-20px;
-}
+  main {
+    height: auto;
+    padding-top: 0px;
+    margin-top: -20px;
+  }
 
-#aboutdiv {
-    text-align:right;
-      cursor:pointer;
-}
-#aboutdiv:hover {
-      cursor:pointer;
-}
+  #aboutdiv {
+    text-align: right;
+    cursor: pointer;
+  }
+  #aboutdiv:hover {
+    cursor: pointer;
+  }
 
-#about {
-    text-align:center;
-}
-#about:hover{
-    cursor:pointer;
-}
+  #about {
+    text-align: center;
+  }
+  #about:hover {
+    cursor: pointer;
+  }
 
-.circle2{
-   width: 530px;
-  height: 530px;
-}
-.circle {
-    width:500px;
-    height:500px;
-}
+  .circle2 {
+    width: 530px;
+    height: 530px;
+  }
+  .circle {
+    width: 500px;
+    height: 500px;
+  }
 
-.inner {
-    width:250px;
-    height:250px;
-}
+  .inner {
+    width: 250px;
+    height: 250px;
+  }
 
-.aboutfield {
-    width:95vw;
-    height:72vh;
-    margin-top:0px;
-    font-size:15px;
-}
-
+  .aboutfield {
+    width: 95vw;
+    height: 72vh;
+    margin-top: 0px;
+    font-size: 15px;
+  }
 }
 
 /* ipad pro size */
-@media (min-width:1000px) and (min-height:1300px) {
+@media (min-width: 1000px) and (min-height: 1300px) {
+  h1 {
+    font-size: 375%;
+    margin-bottom: 0;
+  }
+  .circle2 {
+    width: 830px;
+    height: 830px;
+    margin-top: 185px;
+  }
+  .circle {
+    width: 800px;
+    height: 800px;
+    margin-top: 200px;
+  }
 
-h1 {
-    font-size:375%;
-    margin-bottom:0;
-}
-.circle2{
-   width: 830px;
-  height: 830px;
-    margin-top:185px;
-}
-.circle {
-    width:800px;
-    height:800px;
-    margin-top:200px;
-}
-
-.inner {
-    width:400px;
-    height:400px;
-}
-.aboutfield {
-    width:95vw;
-    height:80vh;
-    font-size:24px;
-}
-.aboutfield h4 {
-    font-size:200%;
-}
-footer {
-    position:absolute;
-    bottom:0;
-    right:0;
-}
+  .inner {
+    width: 400px;
+    height: 400px;
+  }
+  .aboutfield {
+    width: 95vw;
+    height: 80vh;
+    font-size: 24px;
+  }
+  .aboutfield h4 {
+    font-size: 200%;
+  }
+  footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
 }
