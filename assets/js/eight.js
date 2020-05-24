@@ -251,7 +251,9 @@ function newColor(){
 };
 
 $(".turnchallenge").mouseover(function () {
- $(".turnchallenge").html("Press for secret challenge")});
+        if (turn == 0){
+ $(".turnchallenge").html("Press for secret challenge")}
+});
 $(".turnchallenge").mouseleave(function() {
     if (turn == 0){
     $(".turnchallenge").html("Difficulty")}
