@@ -13,8 +13,8 @@ $(document).ready(function () {
     .click(function () {                        //applies to all colored circle slices
       if (game.length == 0 || demo == 1) {      //game hasn't started or demo is in proces: do nothing on click
       } else {
-        var color = $(this).attr("class");      //get the class name of the clicked element and match the color to a number (index) using the switch statement.
-
+        var color = $(this).attr("class").split(' ')[0];      //get the class name of the clicked element and match the color to a number (index) using the switch statement.
+        console.log(color)
         var index;
         switch (color) {
           case "red-4-inner":

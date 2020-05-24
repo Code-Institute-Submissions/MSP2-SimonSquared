@@ -8,13 +8,14 @@ var j = 0
 var i = 0
   var demo = 0
   $(".circle2").hide();
+   $("#gameover").hide();
 
 $(".circle").children().children().click(function(){
 
     if (game.length == 0 || demo == 1) {
 
     } else {
-    var color = $(this).attr("class");
+        var color = $(this).attr("class").split(' ')[0];     
 
     var index 
     switch(color){
@@ -48,11 +49,15 @@ $(".circle").children().children().click(function(){
     $(this).fadeIn(500);
     j = j + 1
     } else {
+        $("#gameover").fadeIn(1000);
+        setTimeout(function(){
+        $("#gameover").fadeOut(1000);
         $("#startnewgame6").fadeIn(1000);
         $(".circle2").hide();
         game =[]
         counter = 0
         j = 0
+        }, 3000);
     };
 
     };

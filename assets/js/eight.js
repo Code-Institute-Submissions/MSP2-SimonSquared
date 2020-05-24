@@ -15,7 +15,7 @@ $(".circle").children().children().click(function(){
     if (game.length == 0 || demo == 1) {
 
     } else {
-    var color = $(this).attr("class");
+        var color = $(this).attr("class").split(' ')[0];     
 
     var index 
     switch(color){
