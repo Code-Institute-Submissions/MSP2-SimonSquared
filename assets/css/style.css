@@ -56,14 +56,55 @@ main {
   border: none;
   padding-top: 15px;
 }
+
+#about h6:hover {
+  border: none;
+  padding-top: 15px;
+  font-size:200%;
+  padding:7px 0 0 0;
+}
+
 #about {
   border: solid 1px black;
   border-radius: 50%;
   height: 50px;
   width: 50px;
-  background-color: white;
+  background-color: rgba(255,255,255,0.8);
+}
+#about:hover {
+    background-color:white;
 }
 
+.aboutfield {
+    background-color:rgba(255,255,255,0.95);
+    border:solid 1px black;
+    width:95vw;
+    height:72vh;
+    position:absolute;
+    z-index:300;
+    margin-top:-120px;
+    padding:1rem;
+    font-size:12px;
+}
+
+#exit {
+    position:absolute;
+    top:1rem;
+    right:1rem;
+    color:rgb(100, 100, 100);
+}
+
+#exit:hover {
+    color:black;
+}
+
+#authorinfo {
+    position:absolute;
+    font-size:10px;
+    margin-right:1rem;
+    bottom:0;
+    right:0;
+}
 .dif {
   background-color: rgba(0, 0, 0, 0.2);
 }
@@ -96,6 +137,22 @@ span {
 #startnewgame4:hover, #startnewgame6:hover, #startnewgame8:hover {
     background-color: rgba(255, 255, 255, 1);
 }
+#counter {
+  position: absolute;
+  z-index: 99;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+    font-family: "Changa", sans-serif;
+    font-size:500%;
+    color:black;
+    text-align:center;
+    border:none;
+    padding:0;
+}
+
+
 #gameover {
   /* display: none; */
   background-color: rgba(0, 0, 0, 1);
@@ -470,7 +527,11 @@ footer {
 }
 
 /* MEDIAQUERIES */
-
+@media (min-width:576px){
+.aboutfield {
+    font-size:14px;
+}
+}
 /* ipad size */
 @media (min-width:768px) and (min-height:900px) {
 
@@ -486,6 +547,14 @@ footer {
 .inner {
     width:350px;
     height:350px;
+}
+.aboutfield {
+    width:95vw;
+    height:80vh;
+    font-size:24px;
+}
+.aboutfield h4 {
+    font-size:200%;
 }
 
 }
@@ -517,6 +586,10 @@ margin-top:-20px;
     text-align:right;
 }
 
+#about {
+    text-align:center;
+}
+
 .circle2{
    width: 530px;
   height: 530px;
@@ -529,6 +602,13 @@ margin-top:-20px;
 .inner {
     width:250px;
     height:250px;
+}
+
+.aboutfield {
+    width:95vw;
+    height:72vh;
+    margin-top:0px;
+    font-size:15px;
 }
 
 }

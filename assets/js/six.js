@@ -7,8 +7,18 @@ var counter = 0
 var j = 0
 var i = 0
   var demo = 0
-  $(".circle2").hide();
-   $("#gameover").hide();
+    $(".circle2").hide();
+    $("#gameover").hide();
+    $(".aboutfield").hide();  
+    $("#counter").hide();                                  
+
+    $("#aboutdiv").click(function() {          
+    $(".aboutfield").toggle();
+});
+
+    $("#exit").click(function() {           
+    $(".aboutfield").hide();
+});
 
 $(".circle").children().children().click(function(){
 
@@ -52,6 +62,7 @@ $(".circle").children().children().click(function(){
         $("#gameover").fadeIn(1000);
         $(".circle2").hide();
         setTimeout(function(){
+        $("#counter").hide();   
         $("#gameover").fadeOut(1000);
         $("#startnewgame6").fadeIn(1000);  
         game =[]
@@ -67,6 +78,8 @@ $(".circle").children().children().click(function(){
 
 
 $("#startnewgame6").click(function(){
+    $("#counter").html(`${counter + 1} `);              //sets level displayer to 0th level
+    $("#counter").show()                                //show level counter
     demo = 1
     game = []
     $(this).fadeOut(500);
@@ -154,6 +167,7 @@ function game6(){
     lightUp()
     setTimeout(function(){
       $(".circle2").hide();
+    $("#counter").html(`${counter + 2} `);                
       }, 1000);
 }, 500);
 };

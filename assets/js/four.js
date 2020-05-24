@@ -6,6 +6,16 @@ $(document).ready(function () {
   var demo = 0                                  //setting a variable that determines weather a demo is in proces (demo = 1) or not; prevents player from clicking while demo is in proces. 
   $(".circle2").hide();                         //hides the circular edge that indicates that it's the players turn
    $("#gameover").hide();                       //hides game over indicator
+    $(".aboutfield").hide();                    //hides aboutfield information div
+    $("#counter").hide();                       //hides aboutfield information div
+
+    $("#aboutdiv").click(function() {           //toggles aboutfield on the click of about button
+    $(".aboutfield").toggle();
+});
+
+    $("#exit").click(function() {           //closes aboutfield on the click of close button
+    $(".aboutfield").hide();
+});
 
 //   PLAYER ACTION
   $(".circle")
@@ -44,6 +54,7 @@ $(document).ready(function () {
         $("#gameover").fadeIn(1000);                    //player made a mistake: game over is shown, prompt for new game
         $(".circle2").hide();
         setTimeout(function(){
+        $("#counter").hide();                           
         $("#gameover").fadeOut(1000);
         $("#startnewgame4").fadeIn(1000);  
         game =[]
@@ -54,7 +65,10 @@ $(document).ready(function () {
       }
     });
 
+//STARTING OF NEW GAME
   $("#startnewgame4").click(function () {               //start new game button starts a new game
+    $("#counter").html(`${counter + 1} `);              //sets level displayer to 0th level
+    $("#counter").show()                                //show level counter
     demo = 1                                            //sets demo
     game = [];                                          //sets new game array
     $(this).fadeOut(500);                               //fadeOut start button
@@ -80,6 +94,8 @@ $(document).ready(function () {
           $(".yellow-4-inner").fadeIn(1000);
           break;
       }
+    //   counter = counter + 1;
+
       console.log(game);
         setTimeout(function(){                          //sets time out before "player turn" circle shows, so that it shows after the tile has faded back in.
       $(".circle2").show();
@@ -88,6 +104,7 @@ $(document).ready(function () {
     }, 1000);
   });
 
+  //DEMONSTRATING GAME ARRAY
   function lightUp() {                                  //function for lighting up the tiles of the sequence in the demo
     setTimeout(function () {                            //sets time out so that tiles light up one after the other and not near simultaneously
       switch (game[i]) {                                //selects the color tile based on the game array item.
@@ -117,18 +134,20 @@ $(document).ready(function () {
     }, 1700);
   }
 
+//DEMONSTRATING GAME ARRAY AND ADDING NEW ITEM
   function game4() {                                        //function which starts demo of the game so far and ads a new color tile to the sequence
       demo = 1                                              //sets demo
-
     setTimeout(function () {                                    
       i = 0;
       lightUp();                                            //calls the light up Loop function which demo-es the game array so far.
     setTimeout(function(){
       $(".circle2").hide();                                 //hides "player turn" circle, but waits until the players last click has fully faded back in again
-      }, 1000);
+      $("#counter").html(`${counter + 2} `);                 //sets level displayer to current level
+    }, 1000);
     }, 500);
   }
 
+  //ADDING NEW ITEM TO GAME ARRAY
   function newColor() {                                     //function which demo'es and adds to the array a new color tile
     setTimeout(function () {
       let colorindex = Math.ceil(Math.random() * 4);        //function very similar to startnewgame function; please refer to notes there.
