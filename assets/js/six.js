@@ -50,10 +50,10 @@ $(".circle").children().children().click(function(){
     j = j + 1
     } else {
         $("#gameover").fadeIn(1000);
+        $(".circle2").hide();
         setTimeout(function(){
         $("#gameover").fadeOut(1000);
-        $("#startnewgame6").fadeIn(1000);
-        $(".circle2").hide();
+        $("#startnewgame6").fadeIn(1000);  
         game =[]
         counter = 0
         j = 0

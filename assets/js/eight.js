@@ -8,7 +8,7 @@ var j = 0
 var i = 0
   var demo = 0
   $(".circle2").hide();
-
+   $("#gameover").hide();
 
 $(".circle").children().children().click(function(){
 
@@ -54,11 +54,15 @@ $(".circle").children().children().click(function(){
     $(this).fadeIn(250);
     j = j + 1
     } else {
-        $("#startnewgame8").fadeIn(1000);
+        $("#gameover").fadeIn(1000);
         $(".circle2").hide();
+        setTimeout(function(){
+        $("#gameover").fadeOut(1000);
+        $("#startnewgame8").fadeIn(1000);  
         game =[]
         counter = 0
         j = 0
+        }, 3000);
     };
 
     };

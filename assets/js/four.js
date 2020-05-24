@@ -5,6 +5,7 @@ $(document).ready(function () {
   var i = 0;                                    //setting counter for looping through array and lighting up the board
   var demo = 0                                  //setting a variable that determines weather a demo is in proces (demo = 1) or not; prevents player from clicking while demo is in proces. 
   $(".circle2").hide();                         //hides the circular edge that indicates that it's the players turn
+   $("#gameover").hide();                       //hides game over indicator
 
 //   PLAYER ACTION
   $(".circle")
@@ -39,12 +40,16 @@ $(document).ready(function () {
           $(this).fadeOut(500);
           $(this).fadeIn(500);
           j = j + 1;                                    //increments j counter: for the next click it will check the next item in the game array
-        } else {
-          $("#startnewgame4").fadeIn(1000);             //player made a mistake: new game is set.
+    } else {
+        $("#gameover").fadeIn(1000);                    //player made a mistake: game over is shown, prompt for new game
         $(".circle2").hide();
-          game = [];
-          counter = 0;
-          j = 0;
+        setTimeout(function(){
+        $("#gameover").fadeOut(1000);
+        $("#startnewgame4").fadeIn(1000);  
+        game =[]
+        counter = 0
+        j = 0
+        }, 3000);
         }
       }
     });
