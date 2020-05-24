@@ -593,6 +593,15 @@ span {
   #startnewgame8 {
     width: 200px;
   }
+
+.aboutfield {
+    width: 95vw;
+    font-size: 10px;
+    margin-top:-100px;
+  }
+.aboutfield h4 {
+    margin-bottom:0;
+}
 }
 /* ipad size */
 @media (min-width: 768px) and (min-height: 900px) {
