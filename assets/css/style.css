@@ -27,6 +27,11 @@ body {
   /* background-image: linear-gradient(-90deg, rgb(173, 186, 230), white); */
 }
 
+footer {
+  height: 120px;
+  padding: 40px;
+}
+/* Colors for logo text */
 .f-red {
   color: red;
 }
@@ -48,14 +53,17 @@ body {
 .f-pink {
   color: pink;
 }
+
 main {
   height: calc(100vh - 311px);
   padding-top: 20px;
 }
-
 .point:hover {
   cursor: pointer;
 }
+
+/* About Field and button */
+
 #aboutdiv:hover {
   cursor: pointer;
 }
@@ -116,6 +124,7 @@ main {
   bottom: 0;
   right: 0;
 }
+/* Header and navigation items */
 .dif {
   background-color: rgba(0, 0, 0, 0.2);
 }
@@ -140,6 +149,7 @@ span {
   cursor: pointer;
 }
 
+/* start button, level counter and game over */
 #startnewgame4,
 #startnewgame6,
 #startnewgame8 {
@@ -194,6 +204,7 @@ span {
   cursor: default;
 }
 
+/* Main game circles */
 .circle {
   position: relative;
   width: 350px;
@@ -545,12 +556,8 @@ span {
   transform: skew(45deg);
 }
 
-footer {
-  height: 120px;
-  padding: 40px;
-}
-
 /* MEDIAQUERIES */
+
 @media (min-width: 576px) {
   .aboutfield {
     font-size: 14px;
