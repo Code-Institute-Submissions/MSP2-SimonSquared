@@ -1,3 +1,6 @@
+// The code here is consistent with the four.js code; it has only been elaborated slightly to account for the extra game tiles. 
+//For comments on the code, please see four.js.
+
 $(document).ready(function(){
 var game =[];
 var counter = 0
