@@ -8,6 +8,7 @@ $(document).ready(function () {
    $("#gameover").hide();                       //hides game over indicator
     $(".aboutfield").hide();                    //hides aboutfield information div
     $("#counter").hide();                       //hides aboutfield information div
+    $(".circle").children().children().removeClass("point");                //changes cursor properties to indicate tiles are not clickable                            
 
     $("#aboutdiv").click(function() {           //toggles aboutfield on the click of about button
     $(".aboutfield").toggle();
@@ -67,6 +68,7 @@ $(document).ready(function () {
 
 //STARTING OF NEW GAME
   $("#startnewgame4").click(function () {               //start new game button starts a new game
+    $(".circle").children().children().removeClass("point");   //changes cursor properties to indicate tiles are not clickable                            
     $("#counter").html(`${counter + 1} `);              //sets level displayer to 0th level
     $("#counter").show()                                //show level counter
     demo = 1                                            //sets demo
@@ -99,6 +101,8 @@ $(document).ready(function () {
       console.log(game);
         setTimeout(function(){                          //sets time out before "player turn" circle shows, so that it shows after the tile has faded back in.
       $(".circle2").show();
+    $(".circle").children().children().addClass("point");                //changes cursor properties to indicate tiles are clickable                            
+
       demo = 0;
       }, 2000);
     }, 1000);
@@ -137,6 +141,7 @@ $(document).ready(function () {
 //DEMONSTRATING GAME ARRAY AND ADDING NEW ITEM
   function game4() {                                        //function which starts demo of the game so far and ads a new color tile to the sequence
       demo = 1                                              //sets demo
+      $(".circle").children().children().removeClass("point");                //changes cursor properties to indicate tiles are not clickable                            
     setTimeout(function () {                                    
       i = 0;
       lightUp();                                            //calls the light up Loop function which demo-es the game array so far.
@@ -179,6 +184,7 @@ $(document).ready(function () {
       setTimeout(function(){
       $(".circle2").show();                         //sets demo to inactive and shows circle indicating player's turn.
       demo = 0;
+      $(".circle").children().children().addClass("point"); //changes cursor properties to indicate that tiles are clickable.
       }, 2000);
     }, 1700);
   }

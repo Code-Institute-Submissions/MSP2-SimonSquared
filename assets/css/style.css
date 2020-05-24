@@ -52,6 +52,9 @@ main {
   padding-top: 20px;
 }
 
+.point:hover {
+    cursor:pointer;
+}
 #about h6 {
   border: none;
   padding-top: 15px;
@@ -133,9 +136,12 @@ span {
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+  text-align:center;
+  
 }
 #startnewgame4:hover, #startnewgame6:hover, #startnewgame8:hover {
     background-color: rgba(255, 255, 255, 1);
+    cursor:pointer;
 }
 #counter {
   position: absolute;
@@ -150,6 +156,9 @@ span {
     text-align:center;
     border:none;
     padding:0;
+}
+#counter:hover {
+    cursor:default;
 }
 
 
@@ -168,6 +177,7 @@ span {
     font-size:300%;
     color:white;
     text-align:center;
+    cursor:default;
 }
 
 .circle {
@@ -532,9 +542,44 @@ footer {
     font-size:14px;
 }
 }
+
+/* small iphone 5se */
+@media (max-width:320px){
+    h1 {
+        margin-bottom:5px;
+    }
+
+.circle2{
+   width: 320px;
+  height: 320px;
+}
+.circle {
+    width:290px;
+    height:290px;
+}
+
+.inner {
+    width:145px;
+    height:145px;
+}
+main {
+  height: auto;
+padding-top: 0px;
+}
+
+#startnewgame4, #startnewgame6, #startnewgame8 {
+width:200px;
+  
+}
+
+}
 /* ipad size */
 @media (min-width:768px) and (min-height:900px) {
 
+h1 {
+    font-size:375%;
+    margin-bottom:0;
+}
 .circle2{
    width: 730px;
   height: 730px;
@@ -558,6 +603,8 @@ footer {
 }
 
 }
+
+
 
 /* desktop size */
 @media (min-width:992px) {
@@ -589,6 +636,9 @@ margin-top:-20px;
 #about {
     text-align:center;
 }
+#about:hover{
+    cursor:pointer;
+}
 
 .circle2{
    width: 530px;
@@ -611,4 +661,41 @@ margin-top:-20px;
     font-size:15px;
 }
 
+}
+
+/* ipad pro size */
+@media (min-width:1000px) and (min-height:1300px) {
+
+h1 {
+    font-size:375%;
+    margin-bottom:0;
+}
+.circle2{
+   width: 830px;
+  height: 830px;
+    margin-top:185px;
+}
+.circle {
+    width:800px;
+    height:800px;
+    margin-top:200px;
+}
+
+.inner {
+    width:400px;
+    height:400px;
+}
+.aboutfield {
+    width:95vw;
+    height:80vh;
+    font-size:24px;
+}
+.aboutfield h4 {
+    font-size:200%;
+}
+footer {
+    position:absolute;
+    bottom:0;
+    right:0;
+}
 }

@@ -11,7 +11,7 @@ var i = 0
     $("#gameover").hide();
     $(".aboutfield").hide();  
     $("#counter").hide();                                  
-
+    $(".circle").children().children().removeClass("point");
     $("#aboutdiv").click(function() {          
     $(".aboutfield").toggle();
 });
@@ -78,8 +78,9 @@ $(".circle").children().children().click(function(){
 
 
 $("#startnewgame6").click(function(){
-    $("#counter").html(`${counter + 1} `);              //sets level displayer to 0th level
-    $("#counter").show()                                //show level counter
+    $(".circle").children().children().removeClass("point");
+    $("#counter").html(`${counter + 1} `);              
+    $("#counter").show()                                
     demo = 1
     game = []
     $(this).fadeOut(500);
@@ -117,6 +118,7 @@ $("#startnewgame6").click(function(){
     console.log(game)
     setTimeout(function(){
       $(".circle2").show();
+      $(".circle").children().children().addClass("point");
       demo = 0;
       }, 2000);
 }, 1000);
@@ -162,6 +164,7 @@ function lightUp(){
 
 function game6(){
     demo = 1
+    $(".circle").children().children().removeClass("point");
     setTimeout(function(){
     i = 0
     lightUp()
@@ -210,6 +213,7 @@ function newColor(){
     setTimeout(function(){
       $(".circle2").show();
       demo = 0;
+      $(".circle").children().children().addClass("point");
       }, 2000);
     }, 1700);
 };
