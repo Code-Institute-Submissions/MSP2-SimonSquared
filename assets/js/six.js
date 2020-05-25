@@ -9,6 +9,9 @@ $(document).ready(function () {
   var demo = 0;
   var turn = 0;
   var turner;
+  var tiles;
+  setTiles();
+setTimeout(function() {console.log(tiles)},1000);
   $(".circle2").hide();
   $("#gameover").hide();
   $(".aboutfield").hide();
@@ -52,13 +55,13 @@ $(document).ready(function () {
             break;
         }
         if (index == game[j] && game.length == j + 1) {
-          $(this).fadeOut(500);
-          $(this).fadeIn(500);
+          $(this).fadeOut(250);
+          $(this).fadeIn(250);
 
           game6();
         } else if (index == game[j]) {
-          $(this).fadeOut(500);
-          $(this).fadeIn(500);
+          $(this).fadeOut(250);
+          $(this).fadeIn(250);
           j = j + 1;
         } else {
           angle = 0;
@@ -93,35 +96,35 @@ $(document).ready(function () {
 
       switch (colorindex) {
         case 1:
-          $(".red-6-inner").fadeOut(1000);
-          $(".red-6-inner").fadeIn(1000);
+          $(".red-6-inner").fadeOut(500);
+          $(".red-6-inner").fadeIn(500);
           break;
         case 2:
-          $(".blue-6-inner").fadeOut(1000);
-          $(".blue-6-inner").fadeIn(1000);
+          $(".blue-6-inner").fadeOut(500);
+          $(".blue-6-inner").fadeIn(500);
           break;
         case 3:
-          $(".green-6-inner").fadeOut(1000);
-          $(".green-6-inner").fadeIn(1000);
+          $(".green-6-inner").fadeOut(500);
+          $(".green-6-inner").fadeIn(500);
           break;
         case 4:
-          $(".yellow-6-inner").fadeOut(1000);
-          $(".yellow-6-inner").fadeIn(1000);
+          $(".yellow-6-inner").fadeOut(500);
+          $(".yellow-6-inner").fadeIn(500);
           break;
         case 5:
-          $(".purple-6-inner").fadeOut(1000);
-          $(".purple-6-inner").fadeIn(1000);
+          $(".purple-6-inner").fadeOut(500);
+          $(".purple-6-inner").fadeIn(500);
           break;
         case 6:
-          $(".orange-6-inner").fadeOut(1000);
-          $(".orange-6-inner").fadeIn(1000);
+          $(".orange-6-inner").fadeOut(500);
+          $(".orange-6-inner").fadeIn(500);
           break;
       }
       setTimeout(function () {
         $(".circle2").show();
         $(".circle").children().children().addClass("point");
         demo = 0;
-      }, 2000);
+      }, 1000);
     }, 1000);
   });
 
@@ -129,28 +132,28 @@ $(document).ready(function () {
     setTimeout(function () {
       switch (game[i]) {
         case 1:
-          $(".red-6-inner").fadeOut(1000);
-          $(".red-6-inner").fadeIn(1000);
+          $(".red-6-inner").fadeOut(500);
+          $(".red-6-inner").fadeIn(500);
           break;
         case 2:
-          $(".blue-6-inner").fadeOut(1000);
-          $(".blue-6-inner").fadeIn(1000);
+          $(".blue-6-inner").fadeOut(500);
+          $(".blue-6-inner").fadeIn(500);
           break;
         case 3:
-          $(".green-6-inner").fadeOut(1000);
-          $(".green-6-inner").fadeIn(1000);
+          $(".green-6-inner").fadeOut(500);
+          $(".green-6-inner").fadeIn(500);
           break;
         case 4:
-          $(".yellow-6-inner").fadeOut(1000);
-          $(".yellow-6-inner").fadeIn(1000);
+          $(".yellow-6-inner").fadeOut(500);
+          $(".yellow-6-inner").fadeIn(500);
           break;
         case 5:
-          $(".purple-6-inner").fadeOut(1000);
-          $(".purple-6-inner").fadeIn(1000);
+          $(".purple-6-inner").fadeOut(500);
+          $(".purple-6-inner").fadeIn(500);
           break;
         case 6:
-          $(".orange-6-inner").fadeOut(1000);
-          $(".orange-6-inner").fadeIn(1000);
+          $(".orange-6-inner").fadeOut(500);
+          $(".orange-6-inner").fadeIn(500);
           break;
       }
       i++;
@@ -159,7 +162,7 @@ $(document).ready(function () {
       } else {
         newColor();
       }
-    }, 1700);
+    }, 1000);
   }
 
   function game6() {
@@ -182,28 +185,28 @@ $(document).ready(function () {
 
       switch (colorindex) {
         case 1:
-          $(".red-6-inner").fadeOut(1000);
-          $(".red-6-inner").fadeIn(1000);
+          $(".red-6-inner").fadeOut(500);
+          $(".red-6-inner").fadeIn(500);
           break;
         case 2:
-          $(".blue-6-inner").fadeOut(1000);
-          $(".blue-6-inner").fadeIn(1000);
+          $(".blue-6-inner").fadeOut(500);
+          $(".blue-6-inner").fadeIn(500);
           break;
         case 3:
-          $(".green-6-inner").fadeOut(1000);
-          $(".green-6-inner").fadeIn(1000);
+          $(".green-6-inner").fadeOut(500);
+          $(".green-6-inner").fadeIn(500);
           break;
         case 4:
-          $(".yellow-6-inner").fadeOut(1000);
-          $(".yellow-6-inner").fadeIn(1000);
+          $(".yellow-6-inner").fadeOut(500);
+          $(".yellow-6-inner").fadeIn(500);
           break;
         case 5:
-          $(".purple-6-inner").fadeOut(1000);
-          $(".purple-6-inner").fadeIn(1000);
+          $(".purple-6-inner").fadeOut(500);
+          $(".purple-6-inner").fadeIn(500);
           break;
         case 6:
-          $(".orange-6-inner").fadeOut(1000);
-          $(".orange-6-inner").fadeIn(1000);
+          $(".orange-6-inner").fadeOut(500);
+          $(".orange-6-inner").fadeIn(500);
           break;
       }
       counter = counter + 1;
@@ -212,8 +215,8 @@ $(document).ready(function () {
         $(".circle2").show();
         demo = 0;
         $(".circle").children().children().addClass("point");
-      }, 2000);
-    }, 1700);
+      }, 1000);
+    }, 1000);
   }
 
   $(".turnchallenge").mouseover(function () {
@@ -249,4 +252,17 @@ $(document).ready(function () {
       $(".turnchallenge").html("Difficulty");
     }
   });
+
+
+  function setTiles(){
+    if ($(".active").children().children().html() == "Four") {
+        tiles = 4;
+    } else if ($(".active").children().children().html() == "Six") {
+        tiles = 6;
+    } else if ($(".active").children().children().html() == "Eight") {
+        tiles = 8;
+    };
+}
+
+
 });

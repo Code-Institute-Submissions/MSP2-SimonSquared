@@ -1,17 +1,19 @@
 $(document).ready(function () {
-  var game = []; //setting an new game
-  var counter = 0; //setting new game counter
-  var j = 0; //setting new counter for checking player clicks with game array
-  var i = 0; //setting counter for looping through array and lighting up the board
-  var demo = 0; //setting a variable that determines weather a demo is in proces (demo = 1) or not; prevents player from clicking while demo is in proces.
-  var turn = 0; //determines turning challenge is inactive
-  var turner; //creates variable to contain for setInterval function
+  let game = []; //setting an new game
+  let counter = 0; //setting new game counter
+  let j = 0; //setting new counter for checking player clicks with game array
+  let i = 0; //setting counter for looping through array and lighting up the board
+  let demo = 0; //setting a variable that determines weather a demo is in proces (demo = 1) or not; prevents player from clicking while demo is in proces.
+  let turn = 0; //determines turning challenge is inactive
+  let turner; //creates variable to contain for setInterval function
+  let tiles; //creates a variable that contains the integer corresponding with the amount of tiles in the game.
   $(".circle2").hide(); //hides the circular edge that indicates that it's the players turn
   $("#gameover").hide(); //hides game over indicator
   $(".aboutfield").hide(); //hides aboutfield information div
   $("#counter").hide(); //hides aboutfield information div
   $(".circle").children().children().removeClass("point"); //changes cursor properties to indicate tiles are not clickable
-
+setTiles();
+/** EVENT HANDLERS */
   $("#aboutdiv").click(function () {
     //toggles aboutfield on the click of about button
     $(".aboutfield").toggle();
@@ -22,37 +24,49 @@ $(document).ready(function () {
     $(".aboutfield").hide();
   });
 
-  //   PLAYER ACTION
+   /** PLAYER ACTION */ 
   $(".circle")
     .children()
-    .children()
+    .children()   //COMMENT HERE ON WHY THIS WAY
     .click(function () {
       //applies to all colored circle slices
       if (game.length == 0 || demo == 1) {
         //game hasn't started or demo is in proces: do nothing on click
       } else {
-        var color = $(this).attr("class").split(" ")[0]; //gets first class name
-        var index;
-        switch (color) {
-          case "red-4-inner":
+        let color = $(this).attr("class").split(" ")[2]; //gets first class name
+        let index;
+        switch (color) {                //THERE IS A POSSIBLE OTHER WAY: DICK WILL EXPLAIN
+          case "red":
             index = 1;
             break;
-          case "blue-4-inner":
+          case "blue":
             index = 2;
             break;
-          case "green-4-inner":
+          case "green":
             index = 3;
             break;
-          case "yellow-4-inner":
+          case "yellow":
             index = 4;
             break;
+        case "purple":
+            index = 5;
+            break;
+          case "orange":
+            index = 6;
+            break;
+          case "pink":
+            index = 7;
+            break;
+          case "turq":
+            index = 8;
+            break;
         }
-        if (index == game[j] && game.length == j + 1) {
+        if (index === game[j] && game.length === j + 1) { //USE TRIPLE EQUAL SIGNS
           //check if the index of tile clicked matches the index in the array sequence AND if it's the last in the array
           $(this).fadeOut(250);
           $(this).fadeIn(250);
-          game4(); //end player turn and start demo sequence plus new color
-        } else if (index == game[j]) {
+          gameDemo(); //end player turn and start demo sequence plus new color
+        } else if (index === game[j]) {
           //check if the index of tile clicked matches the index
           $(this).fadeOut(250);
           $(this).fadeIn(250);
@@ -68,7 +82,7 @@ $(document).ready(function () {
           setTimeout(function () {
             $("#counter").hide();
             $("#gameover").fadeOut(1000);
-            $("#startnewgame4").fadeIn(1000);
+            $("#startnewgame").fadeIn(1000);
             game = [];
             counter = 0;
             j = 0;
@@ -77,8 +91,8 @@ $(document).ready(function () {
       }
     });
 
-  //STARTING OF NEW GAME
-  $("#startnewgame4").click(function () {
+  /** STARTING OF NEW GAME*/ //
+  $("#startnewgame").click(function () {
     //start new game button starts a new game
     $(".circle").children().children().removeClass("point"); //changes cursor properties to indicate tiles are not clickable
     $("#counter").html(`${counter + 1} `); //sets level displayer to 0th level
@@ -88,26 +102,42 @@ $(document).ready(function () {
     $(this).fadeOut(500); //fadeOut start button
     setTimeout(function () {
       //sets time out for demo, because we want to wait until start button has faded and give the player a second to concentrate.
-      let colorindex = Math.ceil(Math.random() * 4); //selects a random number between 1 and 4
+      let colorindex = Math.ceil(Math.random() * tiles); //selects a random number between 1 and 4/6/8
       game.push(colorindex); //pushes number in to game array
       switch (
         colorindex //matches number to game tile and toggleFades it.
       ) {
         case 1:
-          $(".red-4-inner").fadeOut(500);
-          $(".red-4-inner").fadeIn(500);
+          $(".red").fadeOut(500);
+          $(".red").fadeIn(500);
           break;
         case 2:
-          $(".blue-4-inner").fadeOut(500);
-          $(".blue-4-inner").fadeIn(500);
+          $(".blue").fadeOut(500);
+          $(".blue").fadeIn(500);
           break;
         case 3:
-          $(".green-4-inner").fadeOut(500);
-          $(".green-4-inner").fadeIn(500);
+          $(".green").fadeOut(500);
+          $(".green").fadeIn(500);
           break;
         case 4:
-          $(".yellow-4-inner").fadeOut(500);
-          $(".yellow-4-inner").fadeIn(500);
+          $(".yellow").fadeOut(500);
+          $(".yellow").fadeIn(500);
+          break;
+        case 5:
+          $(".purple").fadeOut(500);
+          $(".purple").fadeIn(500);
+          break;
+        case 6:
+          $(".orange").fadeOut(500);
+          $(".orange").fadeIn(500);
+          break;
+        case 7:
+          $(".pink").fadeOut(500);
+          $(".pink").fadeIn(500);
+          break;
+        case 8:
+          $(".turq").fadeOut(500);
+          $(".turq").fadeIn(500);
           break;
       }
       setTimeout(function () {
@@ -120,7 +150,7 @@ $(document).ready(function () {
     }, 1000);
   });
 
-  //DEMONSTRATING GAME ARRAY
+   /** DEMONSTRATING THE ARRAY*/ //
   function lightUp() {
     //function for lighting up the tiles of the sequence in the demo
     setTimeout(function () {
@@ -129,20 +159,36 @@ $(document).ready(function () {
         game[i] //selects the color tile based on the game array item.
       ) {
         case 1:
-          $(".red-4-inner").fadeOut(500);
-          $(".red-4-inner").fadeIn(500);
+          $(".red").fadeOut(500);
+          $(".red").fadeIn(500);
           break;
         case 2:
-          $(".blue-4-inner").fadeOut(500);
-          $(".blue-4-inner").fadeIn(500);
+          $(".blue").fadeOut(500);
+          $(".blue").fadeIn(500);
           break;
         case 3:
-          $(".green-4-inner").fadeOut(500);
-          $(".green-4-inner").fadeIn(500);
+          $(".green").fadeOut(500);
+          $(".green").fadeIn(500);
           break;
         case 4:
-          $(".yellow-4-inner").fadeOut(500);
-          $(".yellow-4-inner").fadeIn(500);
+          $(".yellow").fadeOut(500);
+          $(".yellow").fadeIn(500);
+          break;
+        case 5:
+          $(".purple").fadeOut(500);
+          $(".purple").fadeIn(500);
+          break;
+        case 6:
+          $(".orange").fadeOut(500);
+          $(".orange").fadeIn(500);
+          break;
+        case 7:
+          $(".pink").fadeOut(500);
+          $(".pink").fadeIn(500);
+          break;
+        case 8:
+          $(".turq").fadeOut(500);
+          $(".turq").fadeIn(500);
           break;
       }
       i++;
@@ -154,8 +200,8 @@ $(document).ready(function () {
     }, 1000);
   }
 
-  //DEMONSTRATING GAME ARRAY AND ADDING NEW ITEM
-  function game4() {
+  /** DEMONSTRATING GAME AND ADDING NEW ITEM TO ARRAY*/
+  function gameDemo() {
     //function which starts demo of the game so far and ads a new color tile to the sequence
     demo = 1; //sets demo
     $(".circle").children().children().removeClass("point"); //changes cursor properties to indicate tiles are not clickable
@@ -169,29 +215,45 @@ $(document).ready(function () {
     }, 500);
   }
 
-  //ADDING NEW ITEM TO GAME ARRAY
+  /**ADDING NEW ITEM TO ARRAY*/
   function newColor() {
     //function which demo'es and adds to the array a new color tile
     setTimeout(function () {
-      let colorindex = Math.ceil(Math.random() * 4); //function very similar to startnewgame function; please refer to notes there.
+      let colorindex = Math.ceil(Math.random() * tiles); //function very similar to startnewgame function; please refer to notes there.
       game.push(colorindex);
 
       switch (colorindex) {
         case 1:
-          $(".red-4-inner").fadeOut(500);
-          $(".red-4-inner").fadeIn(500);
+          $(".red").fadeOut(500);
+          $(".red").fadeIn(500);
           break;
         case 2:
-          $(".blue-4-inner").fadeOut(500);
-          $(".blue-4-inner").fadeIn(500);
+          $(".blue").fadeOut(500);
+          $(".blue").fadeIn(500);
           break;
         case 3:
-          $(".green-4-inner").fadeOut(500);
-          $(".green-4-inner").fadeIn(500);
+          $(".green").fadeOut(500);
+          $(".green").fadeIn(500);
           break;
         case 4:
-          $(".yellow-4-inner").fadeOut(500);
-          $(".yellow-4-inner").fadeIn(500);
+          $(".yellow").fadeOut(500);
+          $(".yellow").fadeIn(500);
+          break;
+        case 5:
+          $(".purple").fadeOut(500);
+          $(".purple").fadeIn(500);
+          break;
+        case 6:
+          $(".orange").fadeOut(500);
+          $(".orange").fadeIn(500);
+          break;
+        case 7:
+          $(".pink").fadeOut(500);
+          $(".pink").fadeIn(500);
+          break;
+        case 8:
+          $(".turq").fadeOut(500);
+          $(".turq").fadeIn(500);
           break;
       }
       counter = counter + 1; //sets counter to the last game array item, for loop matching purposes in other function.
@@ -205,7 +267,7 @@ $(document).ready(function () {
     }, 1000);
   }
 
-  //SECRET TURNCHALLENGE CODE
+  /** SECRET TURNING CHALLENGE*/
   $(".turnchallenge").mouseover(function () {
     if (turn == 0) {
       //if rotation is inactive then indicate the button on mouseover
@@ -222,7 +284,7 @@ $(document).ready(function () {
     $(".turnchallenge").html("Press to stop rotation"); //changes header text to Press stop rotation after it's been clicked.
     if (turn == 0) {
       //if rotation is inactive then start rotation.
-      var angle = 0;
+      let angle = 0;
       $(".circle").addClass("rotate");
       turner = setInterval(function () {
         //function found at: http://jsfiddle.net/YgBMa/1
@@ -244,4 +306,20 @@ $(document).ready(function () {
       $(".turnchallenge").html("Difficulty");
     }
   });
+
+/**SETS THE AMOUNT OF TILES IN THE GAME */
+function setTiles(){
+    if ($(".active").children().children().html() == "Four") {
+        tiles = 4;
+    } else if ($(".active").children().children().html() == "Six") {
+        tiles = 6;
+    } else if ($(".active").children().children().html() == "Eight") {
+        tiles = 8;
+    };
+}
+
+
+
+
 });
+
