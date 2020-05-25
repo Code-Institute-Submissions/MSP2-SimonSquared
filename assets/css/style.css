@@ -55,7 +55,7 @@ footer {
 }
 
 main {
-  height: calc(100vh - 311px);
+  /* height: calc(100vh - 311px); */
   padding-top: 20px;
 }
 .point:hover {

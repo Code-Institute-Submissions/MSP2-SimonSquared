@@ -49,13 +49,13 @@ $(document).ready(function () {
         }
         if (index == game[j] && game.length == j + 1) {
           //check if the index of tile clicked matches the index in the array sequence AND if it's the last in the array
-          $(this).fadeOut(500);
-          $(this).fadeIn(500);
+          $(this).fadeOut(250);
+          $(this).fadeIn(250);
           game4(); //end player turn and start demo sequence plus new color
         } else if (index == game[j]) {
           //check if the index of tile clicked matches the index
-          $(this).fadeOut(500);
-          $(this).fadeIn(500);
+          $(this).fadeOut(250);
+          $(this).fadeIn(250);
           j = j + 1; //increments j counter: for the next click it will check the next item in the game array
         } else {
           angle = 0; //sets start angle for turnchallenge at 0
@@ -94,20 +94,20 @@ $(document).ready(function () {
         colorindex //matches number to game tile and toggleFades it.
       ) {
         case 1:
-          $(".red-4-inner").fadeOut(1000);
-          $(".red-4-inner").fadeIn(1000);
+          $(".red-4-inner").fadeOut(500);
+          $(".red-4-inner").fadeIn(500);
           break;
         case 2:
-          $(".blue-4-inner").fadeOut(1000);
-          $(".blue-4-inner").fadeIn(1000);
+          $(".blue-4-inner").fadeOut(500);
+          $(".blue-4-inner").fadeIn(500);
           break;
         case 3:
-          $(".green-4-inner").fadeOut(1000);
-          $(".green-4-inner").fadeIn(1000);
+          $(".green-4-inner").fadeOut(500);
+          $(".green-4-inner").fadeIn(500);
           break;
         case 4:
-          $(".yellow-4-inner").fadeOut(1000);
-          $(".yellow-4-inner").fadeIn(1000);
+          $(".yellow-4-inner").fadeOut(500);
+          $(".yellow-4-inner").fadeIn(500);
           break;
       }
       setTimeout(function () {
@@ -116,7 +116,7 @@ $(document).ready(function () {
         $(".circle").children().children().addClass("point"); //changes cursor properties to indicate tiles are clickable
 
         demo = 0;
-      }, 2000);
+      }, 1000);
     }, 1000);
   });
 
@@ -129,20 +129,20 @@ $(document).ready(function () {
         game[i] //selects the color tile based on the game array item.
       ) {
         case 1:
-          $(".red-4-inner").fadeOut(1000);
-          $(".red-4-inner").fadeIn(1000);
+          $(".red-4-inner").fadeOut(500);
+          $(".red-4-inner").fadeIn(500);
           break;
         case 2:
-          $(".blue-4-inner").fadeOut(1000);
-          $(".blue-4-inner").fadeIn(1000);
+          $(".blue-4-inner").fadeOut(500);
+          $(".blue-4-inner").fadeIn(500);
           break;
         case 3:
-          $(".green-4-inner").fadeOut(1000);
-          $(".green-4-inner").fadeIn(1000);
+          $(".green-4-inner").fadeOut(500);
+          $(".green-4-inner").fadeIn(500);
           break;
         case 4:
-          $(".yellow-4-inner").fadeOut(1000);
-          $(".yellow-4-inner").fadeIn(1000);
+          $(".yellow-4-inner").fadeOut(500);
+          $(".yellow-4-inner").fadeIn(500);
           break;
       }
       i++;
@@ -151,7 +151,7 @@ $(document).ready(function () {
       } else {
         newColor(); //if the i counter reaches the end of the game array then a new color will be added to the array and demo-ed
       }
-    }, 1700);
+    }, 1000);
   }
 
   //DEMONSTRATING GAME ARRAY AND ADDING NEW ITEM
@@ -178,20 +178,20 @@ $(document).ready(function () {
 
       switch (colorindex) {
         case 1:
-          $(".red-4-inner").fadeOut(1000);
-          $(".red-4-inner").fadeIn(1000);
+          $(".red-4-inner").fadeOut(500);
+          $(".red-4-inner").fadeIn(500);
           break;
         case 2:
-          $(".blue-4-inner").fadeOut(1000);
-          $(".blue-4-inner").fadeIn(1000);
+          $(".blue-4-inner").fadeOut(500);
+          $(".blue-4-inner").fadeIn(500);
           break;
         case 3:
-          $(".green-4-inner").fadeOut(1000);
-          $(".green-4-inner").fadeIn(1000);
+          $(".green-4-inner").fadeOut(500);
+          $(".green-4-inner").fadeIn(500);
           break;
         case 4:
-          $(".yellow-4-inner").fadeOut(1000);
-          $(".yellow-4-inner").fadeIn(1000);
+          $(".yellow-4-inner").fadeOut(500);
+          $(".yellow-4-inner").fadeIn(500);
           break;
       }
       counter = counter + 1; //sets counter to the last game array item, for loop matching purposes in other function.
@@ -201,8 +201,8 @@ $(document).ready(function () {
         $(".circle2").show(); //sets demo to inactive and shows circle indicating player's turn.
         demo = 0;
         $(".circle").children().children().addClass("point"); //changes cursor properties to indicate that tiles are clickable.
-      }, 2000);
-    }, 1700);
+      }, 1000);
+    }, 1000);
   }
 
   //SECRET TURNCHALLENGE CODE
