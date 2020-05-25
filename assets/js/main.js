@@ -12,8 +12,8 @@ $(document).ready(function () {
   $(".aboutfield").hide(); //hides aboutfield information div
   $("#counter").hide(); //hides aboutfield information div
   $(".circle").children().children().removeClass("point"); //changes cursor properties to indicate tiles are not clickable
-setTiles();
-/** EVENT HANDLERS */
+  setTiles();
+  /** EVENT HANDLERS */
   $("#aboutdiv").click(function () {
     //toggles aboutfield on the click of about button
     $(".aboutfield").toggle();
@@ -24,10 +24,11 @@ setTiles();
     $(".aboutfield").hide();
   });
 
-   /** PLAYER ACTION */ 
+  /** PLAYER ACTION */
+
   $(".circle")
     .children()
-    .children()   //COMMENT HERE ON WHY THIS WAY
+    .children() //COMMENT HERE ON WHY THIS WAY
     .click(function () {
       //applies to all colored circle slices
       if (game.length == 0 || demo == 1) {
@@ -35,7 +36,9 @@ setTiles();
       } else {
         let color = $(this).attr("class").split(" ")[2]; //gets first class name
         let index;
-        switch (color) {                //THERE IS A POSSIBLE OTHER WAY: DICK WILL EXPLAIN
+        switch (
+          color //THERE IS A POSSIBLE OTHER WAY: DICK WILL EXPLAIN
+        ) {
           case "red":
             index = 1;
             break;
@@ -48,7 +51,7 @@ setTiles();
           case "yellow":
             index = 4;
             break;
-        case "purple":
+          case "purple":
             index = 5;
             break;
           case "orange":
@@ -61,7 +64,8 @@ setTiles();
             index = 8;
             break;
         }
-        if (index === game[j] && game.length === j + 1) { //USE TRIPLE EQUAL SIGNS
+        if (index === game[j] && game.length === j + 1) {
+          //USE TRIPLE EQUAL SIGNS
           //check if the index of tile clicked matches the index in the array sequence AND if it's the last in the array
           $(this).fadeOut(250);
           $(this).fadeIn(250);
@@ -89,10 +93,9 @@ setTiles();
           }, 3000);
         }
       }
-    });
+    }); //
 
-  /** STARTING OF NEW GAME*/ //
-  $("#startnewgame").click(function () {
+  /** STARTING OF NEW GAME*/ $("#startnewgame").click(function () {
     //start new game button starts a new game
     $(".circle").children().children().removeClass("point"); //changes cursor properties to indicate tiles are not clickable
     $("#counter").html(`${counter + 1} `); //sets level displayer to 0th level
@@ -148,10 +151,9 @@ setTiles();
         demo = 0;
       }, 1000);
     }, 1000);
-  });
+  }); //
 
-   /** DEMONSTRATING THE ARRAY*/ //
-  function lightUp() {
+  /** DEMONSTRATING THE ARRAY*/ function lightUp() {
     //function for lighting up the tiles of the sequence in the demo
     setTimeout(function () {
       //sets time out so that tiles light up one after the other and not near simultaneously
@@ -307,19 +309,14 @@ setTiles();
     }
   });
 
-/**SETS THE AMOUNT OF TILES IN THE GAME */
-function setTiles(){
+  /**SETS THE AMOUNT OF TILES IN THE GAME */
+  function setTiles() {
     if ($(".active").children().children().html() == "Four") {
-        tiles = 4;
+      tiles = 4;
     } else if ($(".active").children().children().html() == "Six") {
-        tiles = 6;
+      tiles = 6;
     } else if ($(".active").children().children().html() == "Eight") {
-        tiles = 8;
-    };
-}
-
-
-
-
+      tiles = 8;
+    }
+  }
 });
-
