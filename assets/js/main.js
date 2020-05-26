@@ -235,17 +235,11 @@ $(document).ready(function () {
   let Do2 = "assets/audio/do2.mp3";
   //Code below found at stackoverflow: https://stackoverflow.com/questions/6893080/html5-audio-play-sound-repeatedly-on-click-regardless-if-previous-iteration-h
 
-  //creates audio element to play the sound and removes the element so sound can be played immediately or even during the already played sound.
+  //creates audio element to play the sound 
   function Sound(soSrc) {
     let audio = document.createElement("audio");
     audio.src = soSrc;
-    audio.addEventListener(
-      "ended",
-      function () {
-        document.removeChild(this);
-      },
-      false
-    );
+  
     audio.play();
   }
 
