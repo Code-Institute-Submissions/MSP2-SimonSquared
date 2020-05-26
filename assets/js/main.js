@@ -143,6 +143,7 @@ $(document).ready(function () {
           $(".turq").fadeIn(500);
           break;
       }
+      mySound.play()
       setTimeout(function () {
         //sets time out before "player turn" circle shows, so that it shows after the tile has faded back in.
         $(".circle2").show(); //shows "player turn" indicator circle
@@ -195,8 +196,10 @@ $(document).ready(function () {
       }
       i++;
       if (i <= counter) {
+          mySound.play()
         lightUp();
       } else {
+          mySound.play()
         newColor(); //if the i counter reaches the end of the game array then a new color will be added to the array and demo-ed
       }
     }, 1000);
@@ -319,4 +322,22 @@ $(document).ready(function () {
       tiles = 8;
     }
   }
+
+mySound = new sound("assets/audio/chime.mp3");
+
+  function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+    this.sound.play();
+  }
+  this.stop = function(){
+    this.sound.pause();
+  }
+}
+
 });
