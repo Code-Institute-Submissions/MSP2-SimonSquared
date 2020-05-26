@@ -41,27 +41,35 @@ $(document).ready(function () {
         ) {
           case "red":
             index = 1;
+            Sound(Do);
             break;
           case "blue":
             index = 2;
+            Sound(Re);
             break;
           case "green":
             index = 3;
+            Sound(Mi);
             break;
           case "yellow":
             index = 4;
+            Sound(Fa);
             break;
           case "purple":
             index = 5;
+            Sound(So);
             break;
           case "orange":
             index = 6;
+            Sound(La);
             break;
           case "pink":
             index = 7;
+            Sound(Ti);
             break;
           case "turq":
             index = 8;
+            Sound(Do2);
             break;
         }
         if (index === game[j] && game.length === j + 1) {
@@ -110,40 +118,48 @@ $(document).ready(function () {
       switch (
         colorindex //matches number to game tile and toggleFades it.
       ) {
-        case 1:
+         case 1:
           $(".red").fadeOut(500);
           $(".red").fadeIn(500);
+          Sound(Do);
           break;
         case 2:
           $(".blue").fadeOut(500);
           $(".blue").fadeIn(500);
+          Sound(Re);
           break;
         case 3:
           $(".green").fadeOut(500);
           $(".green").fadeIn(500);
+          Sound(Mi);
           break;
         case 4:
           $(".yellow").fadeOut(500);
           $(".yellow").fadeIn(500);
+          Sound(Fa);
           break;
         case 5:
           $(".purple").fadeOut(500);
           $(".purple").fadeIn(500);
+          Sound(So);
           break;
         case 6:
           $(".orange").fadeOut(500);
           $(".orange").fadeIn(500);
+          Sound(La);
           break;
         case 7:
           $(".pink").fadeOut(500);
           $(".pink").fadeIn(500);
+          Sound(Ti);
           break;
         case 8:
           $(".turq").fadeOut(500);
           $(".turq").fadeIn(500);
+          Sound(Do2);
           break;
       }
-      mySound.play()
+
       setTimeout(function () {
         //sets time out before "player turn" circle shows, so that it shows after the tile has faded back in.
         $(".circle2").show(); //shows "player turn" indicator circle
@@ -158,48 +174,56 @@ $(document).ready(function () {
     //function for lighting up the tiles of the sequence in the demo
     setTimeout(function () {
       //sets time out so that tiles light up one after the other and not near simultaneously
+         
+       
       switch (
         game[i] //selects the color tile based on the game array item.
       ) {
         case 1:
           $(".red").fadeOut(500);
           $(".red").fadeIn(500);
+          Sound(Do);
           break;
         case 2:
           $(".blue").fadeOut(500);
           $(".blue").fadeIn(500);
+          Sound(Re);
           break;
         case 3:
           $(".green").fadeOut(500);
           $(".green").fadeIn(500);
+          Sound(Mi);
           break;
         case 4:
           $(".yellow").fadeOut(500);
           $(".yellow").fadeIn(500);
+          Sound(Fa);
           break;
         case 5:
           $(".purple").fadeOut(500);
           $(".purple").fadeIn(500);
+          Sound(So);
           break;
         case 6:
           $(".orange").fadeOut(500);
           $(".orange").fadeIn(500);
+          Sound(La);
           break;
         case 7:
           $(".pink").fadeOut(500);
           $(".pink").fadeIn(500);
+          Sound(Ti);
           break;
         case 8:
           $(".turq").fadeOut(500);
           $(".turq").fadeIn(500);
+          Sound(Do2);
           break;
       }
       i++;
       if (i <= counter) {
-          mySound.play()
         lightUp();
       } else {
-          mySound.play()
         newColor(); //if the i counter reaches the end of the game array then a new color will be added to the array and demo-ed
       }
     }, 1000);
@@ -228,39 +252,49 @@ $(document).ready(function () {
       game.push(colorindex);
 
       switch (colorindex) {
-        case 1:
+         case 1:
           $(".red").fadeOut(500);
           $(".red").fadeIn(500);
+          Sound(Do);
           break;
         case 2:
           $(".blue").fadeOut(500);
           $(".blue").fadeIn(500);
+          Sound(Re);
           break;
         case 3:
           $(".green").fadeOut(500);
           $(".green").fadeIn(500);
+          Sound(Mi);
           break;
         case 4:
           $(".yellow").fadeOut(500);
           $(".yellow").fadeIn(500);
+          Sound(Fa);
           break;
         case 5:
           $(".purple").fadeOut(500);
           $(".purple").fadeIn(500);
+          Sound(So);
           break;
         case 6:
           $(".orange").fadeOut(500);
           $(".orange").fadeIn(500);
+          Sound(La);
           break;
         case 7:
           $(".pink").fadeOut(500);
           $(".pink").fadeIn(500);
+          Sound(Ti);
           break;
         case 8:
           $(".turq").fadeOut(500);
           $(".turq").fadeIn(500);
+          Sound(Do2);
           break;
       }
+  
+     
       counter = counter + 1; //sets counter to the last game array item, for loop matching purposes in other function.
       j = 0; //resets j for matching player clicks to game array in new turn.
 
@@ -321,23 +355,28 @@ $(document).ready(function () {
     } else if ($(".active").children().children().html() == "Eight") {
       tiles = 8;
     }
-  }
+  };
 
-mySound = new sound("assets/audio/chime.mp3");
+/**SOUND CODE */
+//Sets sound sources in variables.
+let Do = "assets/audio/do.mp3"; 
+let Re = "assets/audio/re.mp3";
+let Mi = "assets/audio/mi.mp3";
+let Fa = "assets/audio/fa.mp3";
+let So = "assets/audio/so.mp3";
+let La = "assets/audio/la.mp3";
+let Ti = "assets/audio/ti.mp3";
+let Do2 = "assets/audio/do2.mp3";
+//Code below found at stackoverflow: https://stackoverflow.com/questions/6893080/html5-audio-play-sound-repeatedly-on-click-regardless-if-previous-iteration-h
 
-  function sound(src) {
-  this.sound = document.createElement("audio");
-  this.sound.src = src;
-  this.sound.setAttribute("preload", "auto");
-  this.sound.setAttribute("controls", "none");
-  this.sound.style.display = "none";
-  document.body.appendChild(this.sound);
-  this.play = function(){
-    this.sound.play();
-  }
-  this.stop = function(){
-    this.sound.pause();
-  }
-}
+//creates audio element to play the sound and removes the element so sound can be played immediately or even during the already played sound.
+ function Sound(soSrc){
+        let audio = document.createElement("audio");
+        audio.src = soSrc;
+        audio.addEventListener("ended", function () {
+            document.removeChild(this);
+        }, false);
+        audio.play();   
+    }
 
 });
