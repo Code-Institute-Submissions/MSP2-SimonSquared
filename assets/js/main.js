@@ -12,7 +12,8 @@ $(document).ready(function () {
   $(".aboutfield").hide(); //hides aboutfield information div
   $("#counter").hide(); //hides aboutfield information div
   $(".circle").children().children().removeClass("point"); //changes cursor properties to indicate tiles are not clickable
-  setTiles();
+  setTiles();//determines the amount of tiles in the game.
+
   /** EVENT HANDLERS */
   $("#aboutdiv").click(function () {
     //toggles aboutfield on the click of about button
@@ -26,9 +27,7 @@ $(document).ready(function () {
 
   /** PLAYER ACTION */
 
-  $(".circle")
-    .children()
-    .children() //COMMENT HERE ON WHY THIS WAY
+  $(".inner")
     .click(function () {
       //applies to all colored circle slices
       if (game.length == 0 || demo == 1) {
@@ -105,7 +104,7 @@ $(document).ready(function () {
 
   /** STARTING OF NEW GAME*/ $("#startnewgame").click(function () {
     //start new game button starts a new game
-    $(".circle").children().children().removeClass("point"); //changes cursor properties to indicate tiles are not clickable
+    $(".inner").removeClass("point"); //changes cursor properties to indicate tiles are not clickable
     $("#counter").html(`${counter + 1} `); //sets level displayer to 0th level
     $("#counter").show(); //show level counter
     demo = 1; //sets demo
@@ -115,51 +114,7 @@ $(document).ready(function () {
       //sets time out for demo, because we want to wait until start button has faded and give the player a second to concentrate.
       let colorindex = Math.ceil(Math.random() * tiles); //selects a random number between 1 and 4/6/8
       game.push(colorindex); //pushes number in to game array
-      switch (
-        colorindex //matches number to game tile and toggleFades it.
-      ) {
-         case 1:
-          $(".red").fadeOut(500);
-          $(".red").fadeIn(500);
-          Sound(Do);
-          break;
-        case 2:
-          $(".blue").fadeOut(500);
-          $(".blue").fadeIn(500);
-          Sound(Re);
-          break;
-        case 3:
-          $(".green").fadeOut(500);
-          $(".green").fadeIn(500);
-          Sound(Mi);
-          break;
-        case 4:
-          $(".yellow").fadeOut(500);
-          $(".yellow").fadeIn(500);
-          Sound(Fa);
-          break;
-        case 5:
-          $(".purple").fadeOut(500);
-          $(".purple").fadeIn(500);
-          Sound(So);
-          break;
-        case 6:
-          $(".orange").fadeOut(500);
-          $(".orange").fadeIn(500);
-          Sound(La);
-          break;
-        case 7:
-          $(".pink").fadeOut(500);
-          $(".pink").fadeIn(500);
-          Sound(Ti);
-          break;
-        case 8:
-          $(".turq").fadeOut(500);
-          $(".turq").fadeIn(500);
-          Sound(Do2);
-          break;
-      }
-
+      selectColor(colorindex); //lights up the requisite tile and chimes
       setTimeout(function () {
         //sets time out before "player turn" circle shows, so that it shows after the tile has faded back in.
         $(".circle2").show(); //shows "player turn" indicator circle
@@ -174,52 +129,7 @@ $(document).ready(function () {
     //function for lighting up the tiles of the sequence in the demo
     setTimeout(function () {
       //sets time out so that tiles light up one after the other and not near simultaneously
-         
-       
-      switch (
-        game[i] //selects the color tile based on the game array item.
-      ) {
-        case 1:
-          $(".red").fadeOut(500);
-          $(".red").fadeIn(500);
-          Sound(Do);
-          break;
-        case 2:
-          $(".blue").fadeOut(500);
-          $(".blue").fadeIn(500);
-          Sound(Re);
-          break;
-        case 3:
-          $(".green").fadeOut(500);
-          $(".green").fadeIn(500);
-          Sound(Mi);
-          break;
-        case 4:
-          $(".yellow").fadeOut(500);
-          $(".yellow").fadeIn(500);
-          Sound(Fa);
-          break;
-        case 5:
-          $(".purple").fadeOut(500);
-          $(".purple").fadeIn(500);
-          Sound(So);
-          break;
-        case 6:
-          $(".orange").fadeOut(500);
-          $(".orange").fadeIn(500);
-          Sound(La);
-          break;
-        case 7:
-          $(".pink").fadeOut(500);
-          $(".pink").fadeIn(500);
-          Sound(Ti);
-          break;
-        case 8:
-          $(".turq").fadeOut(500);
-          $(".turq").fadeIn(500);
-          Sound(Do2);
-          break;
-      }
+      selectColor(game[i]);
       i++;
       if (i <= counter) {
         lightUp();
@@ -233,7 +143,7 @@ $(document).ready(function () {
   function gameDemo() {
     //function which starts demo of the game so far and ads a new color tile to the sequence
     demo = 1; //sets demo
-    $(".circle").children().children().removeClass("point"); //changes cursor properties to indicate tiles are not clickable
+    $(".inner").removeClass("point"); //changes cursor properties to indicate tiles are not clickable
     setTimeout(function () {
       i = 0;
       lightUp(); //calls the light up Loop function which demo-es the game array so far.
@@ -250,58 +160,14 @@ $(document).ready(function () {
     setTimeout(function () {
       let colorindex = Math.ceil(Math.random() * tiles); //function very similar to startnewgame function; please refer to notes there.
       game.push(colorindex);
-
-      switch (colorindex) {
-         case 1:
-          $(".red").fadeOut(500);
-          $(".red").fadeIn(500);
-          Sound(Do);
-          break;
-        case 2:
-          $(".blue").fadeOut(500);
-          $(".blue").fadeIn(500);
-          Sound(Re);
-          break;
-        case 3:
-          $(".green").fadeOut(500);
-          $(".green").fadeIn(500);
-          Sound(Mi);
-          break;
-        case 4:
-          $(".yellow").fadeOut(500);
-          $(".yellow").fadeIn(500);
-          Sound(Fa);
-          break;
-        case 5:
-          $(".purple").fadeOut(500);
-          $(".purple").fadeIn(500);
-          Sound(So);
-          break;
-        case 6:
-          $(".orange").fadeOut(500);
-          $(".orange").fadeIn(500);
-          Sound(La);
-          break;
-        case 7:
-          $(".pink").fadeOut(500);
-          $(".pink").fadeIn(500);
-          Sound(Ti);
-          break;
-        case 8:
-          $(".turq").fadeOut(500);
-          $(".turq").fadeIn(500);
-          Sound(Do2);
-          break;
-      }
-  
-     
+      selectColor(colorindex);
       counter = counter + 1; //sets counter to the last game array item, for loop matching purposes in other function.
       j = 0; //resets j for matching player clicks to game array in new turn.
 
       setTimeout(function () {
         $(".circle2").show(); //sets demo to inactive and shows circle indicating player's turn.
         demo = 0;
-        $(".circle").children().children().addClass("point"); //changes cursor properties to indicate that tiles are clickable.
+        $(".inner").addClass("point"); //changes cursor properties to indicate that tiles are clickable.
       }, 1000);
     }, 1000);
   }
@@ -355,28 +221,77 @@ $(document).ready(function () {
     } else if ($(".active").children().children().html() == "Eight") {
       tiles = 8;
     }
-  };
+  }
 
-/**SOUND CODE */
-//Sets sound sources in variables.
-let Do = "assets/audio/do.mp3"; 
-let Re = "assets/audio/re.mp3";
-let Mi = "assets/audio/mi.mp3";
-let Fa = "assets/audio/fa.mp3";
-let So = "assets/audio/so.mp3";
-let La = "assets/audio/la.mp3";
-let Ti = "assets/audio/ti.mp3";
-let Do2 = "assets/audio/do2.mp3";
-//Code below found at stackoverflow: https://stackoverflow.com/questions/6893080/html5-audio-play-sound-repeatedly-on-click-regardless-if-previous-iteration-h
+  /**SOUND CODE */
+  //Sets sound sources in variables.
+  let Do = "assets/audio/do.mp3";
+  let Re = "assets/audio/re.mp3";
+  let Mi = "assets/audio/mi.mp3";
+  let Fa = "assets/audio/fa.mp3";
+  let So = "assets/audio/so.mp3";
+  let La = "assets/audio/la.mp3";
+  let Ti = "assets/audio/ti.mp3";
+  let Do2 = "assets/audio/do2.mp3";
+  //Code below found at stackoverflow: https://stackoverflow.com/questions/6893080/html5-audio-play-sound-repeatedly-on-click-regardless-if-previous-iteration-h
 
-//creates audio element to play the sound and removes the element so sound can be played immediately or even during the already played sound.
- function Sound(soSrc){
-        let audio = document.createElement("audio");
-        audio.src = soSrc;
-        audio.addEventListener("ended", function () {
-            document.removeChild(this);
-        }, false);
-        audio.play();   
+  //creates audio element to play the sound and removes the element so sound can be played immediately or even during the already played sound.
+  function Sound(soSrc) {
+    let audio = document.createElement("audio");
+    audio.src = soSrc;
+    audio.addEventListener(
+      "ended",
+      function () {
+        document.removeChild(this);
+      },
+      false
+    );
+    audio.play();
+  }
+
+  function selectColor(tilecolor) {
+    //matches number to game tile and toggleFades it and chimes it.
+    switch (tilecolor) {
+      case 1:
+        $(".red").fadeOut(500);
+        $(".red").fadeIn(500);
+        Sound(Do);
+        break;
+      case 2:
+        $(".blue").fadeOut(500);
+        $(".blue").fadeIn(500);
+        Sound(Re);
+        break;
+      case 3:
+        $(".green").fadeOut(500);
+        $(".green").fadeIn(500);
+        Sound(Mi);
+        break;
+      case 4:
+        $(".yellow").fadeOut(500);
+        $(".yellow").fadeIn(500);
+        Sound(Fa);
+        break;
+      case 5:
+        $(".purple").fadeOut(500);
+        $(".purple").fadeIn(500);
+        Sound(So);
+        break;
+      case 6:
+        $(".orange").fadeOut(500);
+        $(".orange").fadeIn(500);
+        Sound(La);
+        break;
+      case 7:
+        $(".pink").fadeOut(500);
+        $(".pink").fadeIn(500);
+        Sound(Ti);
+        break;
+      case 8:
+        $(".turq").fadeOut(500);
+        $(".turq").fadeIn(500);
+        Sound(Do2);
+        break;
     }
-
+  }
 });
