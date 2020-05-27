@@ -22,77 +22,32 @@ $(document).ready(function () {
       tiles = 6;
     } else if ($(".active").children().children().html() == "Eight") {
       tiles = 8;
-    }
-  }
-    let colorArray = [
-      ["empty", "empty"],
-      [".red", Do],
-      [".blue", Re],
-      [".green", Mi],
-      [".yellow", Fa],
-      [".purple", So],
-      [".orange", La],
-      [".pink", Ti],
-      [".turq", Do2]
-  ];
+    };
+  };
   /** EVENT HANDLERS */
   $("#aboutdiv").click(function () {
     //toggles aboutfield on the click of about button
     $(".aboutfield").toggle();
   });
-
   $("#exit").click(function () {
     //closes aboutfield on the click of close button
     $(".aboutfield").hide();
   });
-
   /** PLAYER ACTION */
-
   $(".inner").click(function () {
     //applies to all colored circle slices
     if (game.length == 0 || demo == 1) {
       //game hasn't started or demo is in proces: do nothing on click
     } else {
-      let color = $(this).attr("class").split(" ")[2]; //gets first class name
+      let color = "." + $(this).attr("class").split(" ")[2]; //gets last class name and appends a . in order to compare it to the colorArray
       let index;
-      switch (
-        color //THERE IS A POSSIBLE OTHER WAY: DICK WILL EXPLAIN
-      ) {
-        case "red":
-          index = 1;
-          Sound(Do);
-          break;
-        case "blue":
-          index = 2;
-          Sound(Re);
-          break;
-        case "green":
-          index = 3;
-          Sound(Mi);
-          break;
-        case "yellow":
-          index = 4;
-          Sound(Fa);
-          break;
-        case "purple":
-          index = 5;
-          Sound(So);
-          break;
-        case "orange":
-          index = 6;
-          Sound(La);
-          break;
-        case "pink":
-          index = 7;
-          Sound(Ti);
-          break;
-        case "turq":
-          index = 8;
-          Sound(Do2);
-          break;
-      }
+      colorArray.forEach(function(item) {
+          if (item[0] == color){
+              index = colorArray.indexOf(item)
+          };
+      });     
+      Sound(colorArray[index][1]) 
       if (index === game[j] && game.length === j + 1) {
-        //USE TRIPLE EQUAL SIGNS
         //check if the index of tile clicked matches the index in the array sequence AND if it's the last in the array
         $(this).fadeOut(250);
         $(this).fadeIn(250);
@@ -120,10 +75,8 @@ $(document).ready(function () {
         }, 3000);
       }
     }
-  }); //
-
+  }); 
   /** STARTING OF NEW GAME*/
-
   $("#startnewgame").click(function () {
     //start new game button starts a new game
     $(".inner").removeClass("point"); //changes cursor properties to indicate tiles are not clickable
@@ -141,14 +94,11 @@ $(document).ready(function () {
         //sets time out before "player turn" circle shows, so that it shows after the tile has faded back in.
         $(".circle2").show(); //shows "player turn" indicator circle
         $(".circle").children().children().addClass("point"); //changes cursor properties to indicate tiles are clickable
-
         demo = 0;
       }, 1000);
     }, 1000);
   });
-
   /** DEMONSTRATING THE ARRAY*/
-
   function lightUp() {
     //function for lighting up the tiles of the sequence in the demo
     setTimeout(function () {
@@ -159,10 +109,9 @@ $(document).ready(function () {
         lightUp();
       } else {
         newColor(); //if the i counter reaches the end of the game array then a new color will be added to the array and demo-ed
-      }
+      };
     }, 1000);
-  }
-
+  };
   /** DEMONSTRATING GAME AND ADDING NEW ITEM TO ARRAY*/
   function gameDemo() {
     //function which starts demo of the game so far and ads a new color tile to the sequence
@@ -176,8 +125,7 @@ $(document).ready(function () {
         $("#counter").html(`${counter + 2} `); //sets level displayer to current level
       }, 1000);
     }, 500);
-  }
-
+  };
   /**ADDING NEW ITEM TO ARRAY*/
   function newColor() {
     //function which demo'es and adds to the array a new color tile
@@ -187,27 +135,25 @@ $(document).ready(function () {
       selectColor(colorindex);
       counter = counter + 1; //sets counter to the last game array item, for loop matching purposes in other function.
       j = 0; //resets j for matching player clicks to game array in new turn.
-
       setTimeout(function () {
         $(".circle2").show(); //sets demo to inactive and shows circle indicating player's turn.
         demo = 0;
         $(".inner").addClass("point"); //changes cursor properties to indicate that tiles are clickable.
       }, 1000);
     }, 1000);
-  }
-
+  };
   /** SECRET TURNING CHALLENGE*/
   $(".turnchallenge").mouseover(function () {
     if (turn === 0) {
       //if rotation is inactive then indicate the button on mouseover
       $(".turnchallenge").html("Press for secret challenge");
-    }
+    };
   });
   $(".turnchallenge").mouseleave(function () {
     //if rotation is inactive then revert to "difficulty" on mouseleave
     if (turn === 0) {
       $(".turnchallenge").html("Difficulty");
-    }
+    };
   });
   $(".turnchallenge").click(function () {
     $(".turnchallenge").html("Press to stop rotation"); //changes header text to Press stop rotation after it's been clicked.
@@ -233,9 +179,8 @@ $(document).ready(function () {
       clearInterval(turner);
       $(".circle").css("transform", "rotate(0deg)");
       $(".turnchallenge").html("Difficulty");
-    }
+    };
   });
-
   /**SOUND CODE */
   //Sets sound sources in variables.
   let Do = "assets/audio/do.mp3";
@@ -247,7 +192,6 @@ $(document).ready(function () {
   let Ti = "assets/audio/ti.mp3";
   let Do2 = "assets/audio/do2.mp3";
   //Code below found at stackoverflow: https://stackoverflow.com/questions/6893080/html5-audio-play-sound-repeatedly-on-click-regardless-if-previous-iteration-h
-
   //creates audio element to play the sound
   function Sound(soSrc) {
     if (iOS === false) {
@@ -255,60 +199,26 @@ $(document).ready(function () {
       let audio = document.createElement("audio");
       audio.src = soSrc;
       audio.play();
-    }
-  }
+    };
+  };
   /**
    * matches number to game tile and toggleFades it and chimes it.
-   * @param {number} tilecolor 
+   * @param {number} tilecolor
    */
   function selectColor(tilecolor) {
-    // switch (tilecolor) {
-    //   case 1:
-    //     $(".red").fadeOut(500);
-    //     $(".red").fadeIn(500);
-    //     Sound(Do);
-    //     break;
-    //   case 2:
-    //     $(".blue").fadeOut(500);
-    //     $(".blue").fadeIn(500);
-    //     Sound(Re);
-    //     break;
-    //   case 3:
-    //     $(".green").fadeOut(500);
-    //     $(".green").fadeIn(500);
-    //     Sound(Mi);
-    //     break;
-    //   case 4:
-    //     $(".yellow").fadeOut(500);
-    //     $(".yellow").fadeIn(500);
-    //     Sound(Fa);
-    //     break;
-    //   case 5:
-    //     $(".purple").fadeOut(500);
-    //     $(".purple").fadeIn(500);
-    //     Sound(So);
-    //     break;
-    //   case 6:
-    //     $(".orange").fadeOut(500);
-    //     $(".orange").fadeIn(500);
-    //     Sound(La);
-    //     break;
-    //   case 7:
-    //     $(".pink").fadeOut(500);
-    //     $(".pink").fadeIn(500);
-    //     Sound(Ti);
-    //     break;
-    //   case 8:
-    //     $(".turq").fadeOut(500);
-    //     $(".turq").fadeIn(500);
-    //     Sound(Do2);
-    //     break;
-    // }
-
-    console.log(colorArray[tilecolor][1]);
     $(colorArray[tilecolor][0]).fadeOut(500);
     $(colorArray[tilecolor][0]).fadeIn(500);
-         Sound(colorArray[tilecolor][1]);
-  }
-
+    Sound(colorArray[tilecolor][1]);
+  };
+  let colorArray = [
+    ["empty", "empty"],
+    [".red", Do],
+    [".blue", Re],
+    [".green", Mi],
+    [".yellow", Fa],
+    [".purple", So],
+    [".orange", La],
+    [".pink", Ti],
+    [".turq", Do2],
+  ];
 });
