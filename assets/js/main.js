@@ -12,8 +12,29 @@ $(document).ready(function () {
   $(".aboutfield").hide(); //hides aboutfield information div
   $("#counter").hide(); //hides aboutfield information div
   $(".circle").children().children().removeClass("point"); //changes cursor properties to indicate tiles are not clickable
-  setTiles();//determines the amount of tiles in the game.
-
+  setTiles(); //determines the amount of tiles in the game.
+  let iOS = navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform); // check if browser running is iOS safari; found here: https://stackoverflow.com/questions/9038625/detect-if-device-is-ios
+  /**SET THE AMOUNT OF TILES IN THE GAME */
+  function setTiles() {
+    if ($(".active").children().children().html() == "Four") {
+      tiles = 4;
+    } else if ($(".active").children().children().html() == "Six") {
+      tiles = 6;
+    } else if ($(".active").children().children().html() == "Eight") {
+      tiles = 8;
+    }
+  }
+    let colorArray = [
+      ["empty", "empty"],
+      [".red", Do],
+      [".blue", Re],
+      [".green", Mi],
+      [".yellow", Fa],
+      [".purple", So],
+      [".orange", La],
+      [".pink", Ti],
+      [".turq", Do2]
+  ];
   /** EVENT HANDLERS */
   $("#aboutdiv").click(function () {
     //toggles aboutfield on the click of about button
@@ -27,82 +48,83 @@ $(document).ready(function () {
 
   /** PLAYER ACTION */
 
-  $(".inner")
-    .click(function () {
-      //applies to all colored circle slices
-      if (game.length == 0 || demo == 1) {
-        //game hasn't started or demo is in proces: do nothing on click
-      } else {
-        let color = $(this).attr("class").split(" ")[2]; //gets first class name
-        let index;
-        switch (
-          color //THERE IS A POSSIBLE OTHER WAY: DICK WILL EXPLAIN
-        ) {
-          case "red":
-            index = 1;
-            Sound(Do);
-            break;
-          case "blue":
-            index = 2;
-            Sound(Re);
-            break;
-          case "green":
-            index = 3;
-            Sound(Mi);
-            break;
-          case "yellow":
-            index = 4;
-            Sound(Fa);
-            break;
-          case "purple":
-            index = 5;
-            Sound(So);
-            break;
-          case "orange":
-            index = 6;
-            Sound(La);
-            break;
-          case "pink":
-            index = 7;
-            Sound(Ti);
-            break;
-          case "turq":
-            index = 8;
-            Sound(Do2);
-            break;
-        }
-        if (index === game[j] && game.length === j + 1) {
-          //USE TRIPLE EQUAL SIGNS
-          //check if the index of tile clicked matches the index in the array sequence AND if it's the last in the array
-          $(this).fadeOut(250);
-          $(this).fadeIn(250);
-          gameDemo(); //end player turn and start demo sequence plus new color
-        } else if (index === game[j]) {
-          //check if the index of tile clicked matches the index
-          $(this).fadeOut(250);
-          $(this).fadeIn(250);
-          j = j + 1; //increments j counter: for the next click it will check the next item in the game array
-        } else {
-          angle = 0; //sets start angle for turnchallenge at 0
-          turn = 0; //determines turn challenge is inactive.
-          clearInterval(turner); //clears the setInterval function which stops the rotation.
-          $(".circle").css("transform", "rotate(0deg)"); //makes sure the circle and it's (text) contents is right side up
-          $(".turnchallenge").html("Difficulty"); //sets the level header back to "Difficulty"
-          $("#gameover").fadeIn(1000); //player made a mistake: game over is shown, prompt for new game
-          $(".circle2").hide(); //hides "player turn" indicator circle
-          setTimeout(function () {
-            $("#counter").hide();
-            $("#gameover").fadeOut(1000);
-            $("#startnewgame").fadeIn(1000);
-            game = [];
-            counter = 0;
-            j = 0;
-          }, 3000);
-        }
+  $(".inner").click(function () {
+    //applies to all colored circle slices
+    if (game.length == 0 || demo == 1) {
+      //game hasn't started or demo is in proces: do nothing on click
+    } else {
+      let color = $(this).attr("class").split(" ")[2]; //gets first class name
+      let index;
+      switch (
+        color //THERE IS A POSSIBLE OTHER WAY: DICK WILL EXPLAIN
+      ) {
+        case "red":
+          index = 1;
+          Sound(Do);
+          break;
+        case "blue":
+          index = 2;
+          Sound(Re);
+          break;
+        case "green":
+          index = 3;
+          Sound(Mi);
+          break;
+        case "yellow":
+          index = 4;
+          Sound(Fa);
+          break;
+        case "purple":
+          index = 5;
+          Sound(So);
+          break;
+        case "orange":
+          index = 6;
+          Sound(La);
+          break;
+        case "pink":
+          index = 7;
+          Sound(Ti);
+          break;
+        case "turq":
+          index = 8;
+          Sound(Do2);
+          break;
       }
-    }); //
+      if (index === game[j] && game.length === j + 1) {
+        //USE TRIPLE EQUAL SIGNS
+        //check if the index of tile clicked matches the index in the array sequence AND if it's the last in the array
+        $(this).fadeOut(250);
+        $(this).fadeIn(250);
+        gameDemo(); //end player turn and start demo sequence plus new color
+      } else if (index === game[j]) {
+        //check if the index of tile clicked matches the index
+        $(this).fadeOut(250);
+        $(this).fadeIn(250);
+        j = j + 1; //increments j counter: for the next click it will check the next item in the game array
+      } else {
+        angle = 0; //sets start angle for turnchallenge at 0
+        turn = 0; //determines turn challenge is inactive.
+        clearInterval(turner); //clears the setInterval function which stops the rotation.
+        $(".circle").css("transform", "rotate(0deg)"); //makes sure the circle and it's (text) contents is right side up
+        $(".turnchallenge").html("Difficulty"); //sets the level header back to "Difficulty"
+        $("#gameover").fadeIn(1000); //player made a mistake: game over is shown, prompt for new game
+        $(".circle2").hide(); //hides "player turn" indicator circle
+        setTimeout(function () {
+          $("#counter").hide();
+          $("#gameover").fadeOut(1000);
+          $("#startnewgame").fadeIn(1000);
+          game = [];
+          counter = 0;
+          j = 0;
+        }, 3000);
+      }
+    }
+  }); //
 
-  /** STARTING OF NEW GAME*/ $("#startnewgame").click(function () {
+  /** STARTING OF NEW GAME*/
+
+  $("#startnewgame").click(function () {
     //start new game button starts a new game
     $(".inner").removeClass("point"); //changes cursor properties to indicate tiles are not clickable
     $("#counter").html(`${counter + 1} `); //sets level displayer to 0th level
@@ -123,9 +145,11 @@ $(document).ready(function () {
         demo = 0;
       }, 1000);
     }, 1000);
-  }); //
+  });
 
-  /** DEMONSTRATING THE ARRAY*/ function lightUp() {
+  /** DEMONSTRATING THE ARRAY*/
+
+  function lightUp() {
     //function for lighting up the tiles of the sequence in the demo
     setTimeout(function () {
       //sets time out so that tiles light up one after the other and not near simultaneously
@@ -174,20 +198,20 @@ $(document).ready(function () {
 
   /** SECRET TURNING CHALLENGE*/
   $(".turnchallenge").mouseover(function () {
-    if (turn == 0) {
+    if (turn === 0) {
       //if rotation is inactive then indicate the button on mouseover
       $(".turnchallenge").html("Press for secret challenge");
     }
   });
   $(".turnchallenge").mouseleave(function () {
     //if rotation is inactive then revert to "difficulty" on mouseleave
-    if (turn == 0) {
+    if (turn === 0) {
       $(".turnchallenge").html("Difficulty");
     }
   });
   $(".turnchallenge").click(function () {
     $(".turnchallenge").html("Press to stop rotation"); //changes header text to Press stop rotation after it's been clicked.
-    if (turn == 0) {
+    if (turn === 0) {
       //if rotation is inactive then start rotation.
       let angle = 0;
       $(".circle").addClass("rotate");
@@ -212,17 +236,6 @@ $(document).ready(function () {
     }
   });
 
-  /**SETS THE AMOUNT OF TILES IN THE GAME */
-  function setTiles() {
-    if ($(".active").children().children().html() == "Four") {
-      tiles = 4;
-    } else if ($(".active").children().children().html() == "Six") {
-      tiles = 6;
-    } else if ($(".active").children().children().html() == "Eight") {
-      tiles = 8;
-    }
-  }
-
   /**SOUND CODE */
   //Sets sound sources in variables.
   let Do = "assets/audio/do.mp3";
@@ -235,57 +248,67 @@ $(document).ready(function () {
   let Do2 = "assets/audio/do2.mp3";
   //Code below found at stackoverflow: https://stackoverflow.com/questions/6893080/html5-audio-play-sound-repeatedly-on-click-regardless-if-previous-iteration-h
 
-  //creates audio element to play the sound 
+  //creates audio element to play the sound
   function Sound(soSrc) {
-    let audio = document.createElement("audio");
-    audio.src = soSrc;
-  
-    audio.play();
-  }
-
-  function selectColor(tilecolor) {
-    //matches number to game tile and toggleFades it and chimes it.
-    switch (tilecolor) {
-      case 1:
-        $(".red").fadeOut(500);
-        $(".red").fadeIn(500);
-        Sound(Do);
-        break;
-      case 2:
-        $(".blue").fadeOut(500);
-        $(".blue").fadeIn(500);
-        Sound(Re);
-        break;
-      case 3:
-        $(".green").fadeOut(500);
-        $(".green").fadeIn(500);
-        Sound(Mi);
-        break;
-      case 4:
-        $(".yellow").fadeOut(500);
-        $(".yellow").fadeIn(500);
-        Sound(Fa);
-        break;
-      case 5:
-        $(".purple").fadeOut(500);
-        $(".purple").fadeIn(500);
-        Sound(So);
-        break;
-      case 6:
-        $(".orange").fadeOut(500);
-        $(".orange").fadeIn(500);
-        Sound(La);
-        break;
-      case 7:
-        $(".pink").fadeOut(500);
-        $(".pink").fadeIn(500);
-        Sound(Ti);
-        break;
-      case 8:
-        $(".turq").fadeOut(500);
-        $(".turq").fadeIn(500);
-        Sound(Do2);
-        break;
+    if (iOS === false) {
+      // If the app is running in iOS safari then disable sound, because it won't be functioning properly
+      let audio = document.createElement("audio");
+      audio.src = soSrc;
+      audio.play();
     }
   }
+  /**
+   * matches number to game tile and toggleFades it and chimes it.
+   * @param {number} tilecolor 
+   */
+  function selectColor(tilecolor) {
+    // switch (tilecolor) {
+    //   case 1:
+    //     $(".red").fadeOut(500);
+    //     $(".red").fadeIn(500);
+    //     Sound(Do);
+    //     break;
+    //   case 2:
+    //     $(".blue").fadeOut(500);
+    //     $(".blue").fadeIn(500);
+    //     Sound(Re);
+    //     break;
+    //   case 3:
+    //     $(".green").fadeOut(500);
+    //     $(".green").fadeIn(500);
+    //     Sound(Mi);
+    //     break;
+    //   case 4:
+    //     $(".yellow").fadeOut(500);
+    //     $(".yellow").fadeIn(500);
+    //     Sound(Fa);
+    //     break;
+    //   case 5:
+    //     $(".purple").fadeOut(500);
+    //     $(".purple").fadeIn(500);
+    //     Sound(So);
+    //     break;
+    //   case 6:
+    //     $(".orange").fadeOut(500);
+    //     $(".orange").fadeIn(500);
+    //     Sound(La);
+    //     break;
+    //   case 7:
+    //     $(".pink").fadeOut(500);
+    //     $(".pink").fadeIn(500);
+    //     Sound(Ti);
+    //     break;
+    //   case 8:
+    //     $(".turq").fadeOut(500);
+    //     $(".turq").fadeIn(500);
+    //     Sound(Do2);
+    //     break;
+    // }
+
+    console.log(colorArray[tilecolor][1]);
+    $(colorArray[tilecolor][0]).fadeOut(500);
+    $(colorArray[tilecolor][0]).fadeIn(500);
+         Sound(colorArray[tilecolor][1]);
+  }
+
 });
