@@ -22,8 +22,8 @@ $(document).ready(function () {
       tiles = 6;
     } else if ($(".active").children().children().html() == "Eight") {
       tiles = 8;
-    };
-  };
+    }
+  }
   /** EVENT HANDLERS */
   $("#aboutdiv").click(function () {
     //toggles aboutfield on the click of about button
@@ -41,12 +41,12 @@ $(document).ready(function () {
     } else {
       let color = "." + $(this).attr("class").split(" ")[2]; //gets last class name and appends a . in order to compare it to the colorArray
       let index;
-      colorArray.forEach(function(item) {
-          if (item[0] == color){
-              index = colorArray.indexOf(item)
-          };
-      });     
-      Sound(colorArray[index][1]) 
+      colorArray.forEach(function (item) {
+        if (item[0] == color) {
+          index = colorArray.indexOf(item);
+        }
+      });
+      Sound(colorArray[index][1]);
       if (index === game[j] && game.length === j + 1) {
         //check if the index of tile clicked matches the index in the array sequence AND if it's the last in the array
         $(this).fadeOut(250);
@@ -75,7 +75,7 @@ $(document).ready(function () {
         }, 3000);
       }
     }
-  }); 
+  });
   /** STARTING OF NEW GAME*/
   $("#startnewgame").click(function () {
     //start new game button starts a new game
@@ -109,9 +109,9 @@ $(document).ready(function () {
         lightUp();
       } else {
         newColor(); //if the i counter reaches the end of the game array then a new color will be added to the array and demo-ed
-      };
+      }
     }, 1000);
-  };
+  }
   /** DEMONSTRATING GAME AND ADDING NEW ITEM TO ARRAY*/
   function gameDemo() {
     //function which starts demo of the game so far and ads a new color tile to the sequence
@@ -125,7 +125,7 @@ $(document).ready(function () {
         $("#counter").html(`${counter + 2} `); //sets level displayer to current level
       }, 1000);
     }, 500);
-  };
+  }
   /**ADDING NEW ITEM TO ARRAY*/
   function newColor() {
     //function which demo'es and adds to the array a new color tile
@@ -141,19 +141,19 @@ $(document).ready(function () {
         $(".inner").addClass("point"); //changes cursor properties to indicate that tiles are clickable.
       }, 1000);
     }, 1000);
-  };
+  }
   /** SECRET TURNING CHALLENGE*/
   $(".turnchallenge").mouseover(function () {
     if (turn === 0) {
       //if rotation is inactive then indicate the button on mouseover
       $(".turnchallenge").html("Press for secret challenge");
-    };
+    }
   });
   $(".turnchallenge").mouseleave(function () {
     //if rotation is inactive then revert to "difficulty" on mouseleave
     if (turn === 0) {
       $(".turnchallenge").html("Difficulty");
-    };
+    }
   });
   $(".turnchallenge").click(function () {
     $(".turnchallenge").html("Press to stop rotation"); //changes header text to Press stop rotation after it's been clicked.
@@ -179,7 +179,7 @@ $(document).ready(function () {
       clearInterval(turner);
       $(".circle").css("transform", "rotate(0deg)");
       $(".turnchallenge").html("Difficulty");
-    };
+    }
   });
   /**SOUND CODE */
   //Sets sound sources in variables.
@@ -199,8 +199,8 @@ $(document).ready(function () {
       let audio = document.createElement("audio");
       audio.src = soSrc;
       audio.play();
-    };
-  };
+    }
+  }
   /**
    * matches number to game tile and toggleFades it and chimes it.
    * @param {number} tilecolor
@@ -209,7 +209,7 @@ $(document).ready(function () {
     $(colorArray[tilecolor][0]).fadeOut(500);
     $(colorArray[tilecolor][0]).fadeIn(500);
     Sound(colorArray[tilecolor][1]);
-  };
+  }
   let colorArray = [
     ["empty", "empty"],
     [".red", Do],
