@@ -91,7 +91,7 @@ All pages are tested by having them display in the respective format sizes. They
 
 ### Testing Webgame logic responsiveness ###
 
-The code of the game was tested by playing it many times (at least until "round 10" of the game) over to ensure that the following features functioned properly:
+The code of the game was tested by playing it many times (each time at least until "round 5" of the game) over to ensure that the following features functioned properly:
 * Game demonstration.
     * The game builds a randomized sequence by adding a random tile to the sequence at the end of each turn.
     * The game repeats the same sequence propperly each time, adding a new addition at the end of the sequence each time.
