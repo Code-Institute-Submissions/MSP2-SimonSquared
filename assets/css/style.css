@@ -58,13 +58,11 @@ main {
 }
 
 /* About Field and button */
-#aboutdiv:hover {
-  cursor: pointer;
-}
 #about h6 {
   border: none;
   padding-top: 15px;
   cursor: pointer;
+  text-align: center;
 }
 #about h6:hover {
   border: none;
@@ -79,6 +77,8 @@ main {
   height: 50px;
   width: 50px;
   background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  display: inline-block;
   cursor: pointer;
 }
 #about:hover {
@@ -116,6 +116,8 @@ main {
 /* Header and navigation items */
 .dif {
   background-color: rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  margin-bottom: 20px;
 }
 .dif h6 a {
   text-decoration: none;
@@ -126,10 +128,6 @@ main {
 }
 .col-12 {
   text-align: center;
-}
-span {
-  display: inline-block;
-  margin-bottom: 20px;
 }
 .turnchallenge:hover {
   cursor: pointer;
@@ -614,18 +612,16 @@ span {
     padding-top: 0px;
     margin-top: -20px;
   }
-  #aboutdiv {
-    text-align: right;
-    cursor: pointer;
-  }
-  #aboutdiv:hover {
-    cursor: pointer;
-  }
   #about {
-    text-align: center;
+    text-align: right;
+    display: inline-block;
+    margin-bottom: 20px;
   }
   #about:hover {
     cursor: pointer;
+  }
+  footer .col-12 {
+      text-align: right;
   }
   .circle2 {
     width: 530px;

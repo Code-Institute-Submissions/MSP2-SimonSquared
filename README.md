@@ -66,6 +66,9 @@ _Stylesheet and script plugins used:_
 The website was tested using W3 CSS/HTML validator (validator.w3.org).
 Each page's HTML code was run through the validator as well as the CSS code. 
 
+On the HTML validation I solved some issues concerning block elements within span elements.
+On the CSS validation the validator mentioned a "Parse Error: | circle()" for both the .circle and .circle2 class. I think this is an error in the validator.
+
 ### Testing User Stories ###
 
 User stories are tested by manually going through the proces of attaining the user goal on the website and checking if every step is working as expected.

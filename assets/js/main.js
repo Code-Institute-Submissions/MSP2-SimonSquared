@@ -25,7 +25,7 @@ $(document).ready(function () {
     }
   }
   /** EVENT HANDLERS */
-  $("#aboutdiv").click(function () {
+  $("#about").click(function () {
     //toggles aboutfield on the click of about button
     $(".aboutfield").toggle();
   });
