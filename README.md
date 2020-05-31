@@ -69,6 +69,8 @@ Each page's HTML code was run through the validator as well as the CSS code.
 On the HTML validation I solved some issues concerning block elements within span elements.
 On the CSS validation the validator mentioned a "Parse Error: | circle()" for both the .circle and .circle2 class. I think this is an error in the validator.
 
+The main.js file was passed through jshint validator. It did not bring up any major issues.
+
 ### Testing User Stories ###
 
 User stories are tested by manually going through the proces of attaining the user goal on the website and checking if every step is working as expected.
@@ -77,11 +79,16 @@ User stories are tested by manually going through the proces of attaining the us
     * The user finds the classic Simon game on the landing page. The User can also navigate to this page by clicking the menu nav button "Four".
     On any page, click the "Book Now Button" in the footer. OR: Go to contact page, click on "form" link in the text or the "Book Now" button on the page.
     * The user can start enjoying classing Simon by pressing "Start New Game" in the center of the Simon tiles.
+
+<img src="/assets/images/simonclassic.png" height="300px">
+
 * As a user, I want to enjoy a game similar to “Simon”, but preferably a bit more complex.
     * The user can find a more challenging game in two different ways:
         * The user can opt for a game with more than four tiles by clicking on "Six" or "Eight" in the navigation menu. Then pressing "Start New Game" in that respective game.
         * The user can opt to make each game (four, six or eight) more challenging by finding the secret challenge, hidden in the "Difficulty" header. When the user hovers over the header the challenge will reveal itself (unavailable on handheld devices). By clicking the header the game will start contiunously rotating, thus making it more challenging.
             * The rotation feature can be stopped at any time by clicking the "Press here to stop rotation" header, which reveals itself when rotation has been initiated.
+            
+<img src="/assets/images/simoncomplex.png" height="300px">
 
 ### Testing Website responsiveness ###
 
@@ -119,4 +126,6 @@ One bug I ran in to after deployment was the fact that the interactive sound fea
     * https://stackoverflow.com/questions/9038625/detect-if-device-is-ios 
     * https://stackoverflow.com/questions/6893080/html5-audio-play-sound-repeatedly-on-click-regardless-if-previous-iteration-h
     * https://www.custarddoughnuts.co.uk/article/2016/5/14/making-segmented-circles-and-pie-charts-in-css 
+    * https://html-online.com/articles/smart-404-error-page-redirect/
+
 After trying for a long time to come up with my own original project idea, I ended up doing this project because it was suggested by Code Institute.
