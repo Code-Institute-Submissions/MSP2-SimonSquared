@@ -9,7 +9,11 @@ The website can was deployed using GitHub Pages and can be viewed here: https://
 
 ## UX ##
 
-This web application is developed for anybody who enjoys simple mind challenging games either for enjoyment or for training their memory capacity. The following user stories apply:
+This web application is developed for anybody who enjoys simple mind challenging games either for enjoyment or for training their memory capacity. 
+
+The owner's goal is to provide this form of entertainment. It's a free service so there is no business model that applies. If the goal for it was to be lucrative one can imagine some sort of advertising revenue that often go with freemium games. In any case the strategy is Business to Client. 
+
+The following user stories apply:
 * As a user, I want to enjoy a game of classic “Simon”.
 * As a user, I want to enjoy a game similar to “Simon”, but preferably a bit more complex.
 
@@ -69,7 +73,7 @@ Each page's HTML code was run through the validator as well as the CSS code.
 On the HTML validation I solved some issues concerning block elements within span elements.
 On the CSS validation the validator mentioned a "Parse Error: | circle()" for both the .circle and .circle2 class. I think this is an error in the validator.
 
-The main.js file was passed through jshint validator. It did not bring up any major issues.
+The main.js file was passed through jshint linter. It did not bring up any major issues.
 
 ### Testing User Stories ###
 
