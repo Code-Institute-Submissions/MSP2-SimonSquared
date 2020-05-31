@@ -1,99 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<!-- This page contains comments which apply to all html pages, since they are slightly varied copies of each other. You will not find similar comments on each page since you can refer back to this one for similar code. -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Simon Squared</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
-		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> <!--To enable responsive design for different browser sizes-->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"> <!--To enable icon use-->
-	<link rel="stylesheet" href="assets/css/style.css"> <!--refers to personal style sheet for designing the website-->
- <script
-  src="https://code.jquery.com/jquery-3.5.1.js"
-  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script> <!--allows for easy DOM manipulation-->
-    <script src="assets/js/main.js"></script> <!--refers to personal javascript code for the function design of the website-->
+	<!-- This page contains comments which apply to all html pages, since they are slightly varied copies of each other. You will not find similar comments on each page since you can refer back to this one for similar code. -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Simon Squared</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<!--To enable responsive design for different browser sizes-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+	<!--To enable icon use-->
+	<link rel="stylesheet" href="assets/css/style.css">
+	<!--refers to personal style sheet for designing the website-->
+	<script src="https://code.jquery.com/jquery-3.5.1.js"
+		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<!--allows for easy DOM manipulation-->
+	<script src="assets/js/main.js"></script>
+	<!--refers to personal javascript code for the function design of the website-->
 </head>
+
 <body>
-    <header>
-        <div class="container-fluid"> 
-            <div class="row justify-content-center no-gutters">
-                <div class="col-12 col-lg-6"> <!--On large displays the the divs of the header should be displayed next to each other and on small displays they should be stacked.-->
-                    <h1>Simon<sup><span class="f-red">S</span><span class="f-blue">q</span><span class="f-green">u</span><span class="f-yellow">a</span><span class="f-purple">r</span><span class="f-orange">e</span><span class="f-pink">d</span></sup></h1>
-                </div>
-                <div class="col-12 col-lg-3">
-                    <h5 class="turnchallenge">Difficulty</h5> <!-- This header functions as a secret button for an enhanced game experience: an easter egg if you will.-->
-                </div>
-                <div class="col-12 col-lg-3">
-                    <nav>
-                        <div>
-                            <div class="dif active"><h6><a href="index.html">Four</a></h6></div>   
-                            <div class="dif"><h6><a href="six.html">Six</a></h6></div>     
-                            <div class="dif"><h6><a href="eight.html">Eight</a></h6></div>                
-                        </div>
-                    </nav>
-                </div>            
 
-            </div>
-        </div>
-    </header>
+	<header>
+		<div class="container-fluid">
+			<div class="row justify-content-center no-gutters">
+				<div class="col-12 col-lg-6">
+					<!--On large displays the the divs of the header should be displayed next to each other and on small displays they should be stacked.-->
+					<h1>Simon<sup><span class="f-red">S</span><span class="f-blue">q</span><span class="f-green">u</span><span class="f-yellow">a</span><span class="f-purple">r</span><span class="f-orange">e</span><span class="f-pink">d</span></sup>
+					</h1>
+				</div>
+				<div class="col-12 col-lg-3">
+					<h5 class="turnchallenge">Difficulty</h5>
+					<!-- This header functions as a secret button for an enhanced game experience: an easter egg if you will.-->
+				</div>
+				<div class="col-12 col-lg-3">
+					<nav>
+						<div>
+							<div class="dif active">
+								<h6><a href="index.html">Four</a></h6>
+							</div>
+							<div class="dif">
+								<h6><a href="six.html">Six</a></h6>
+							</div>
+							<div class="dif">
+								<h6><a href="eight.html">Eight</a></h6>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
 
-    <main>
-        <div class="container-fluid simon">
-            <div class="row justify-content-center no-gutters">    
-                <div class="circle2"></div>        
-                    <div class="circle"> <!--The segmented circles were achieved using a slightly adjusted version of the technique I found here: https://www.custarddoughnuts.co.uk/article/2016/5/14/making-segmented-circles-and-pie-charts-in-css -->
-                        <div class="origin-4-red">   <!--"origin*" divs are used to place the segments propperly-->            
-                        <div class="red-inner inner red"></div>  <!--The three classes are necessary because "red" applies to all red tiles in 4, 6 or 8; "inner" applies to all the tile sin the current game; "red-inner" (or variation thereof) applies only to this specific tile, and thus could also have been used as an id.-->
-                        </div>
-                        <div class="origin-4-blue">          
-                        <div class="blue-inner inner blue"></div>
-                        </div>
-                        <div class="origin-4-green">          
-                        <div class="green-inner inner green"></div>
-                        </div>
-                        <div class="origin-4-yellow">          
-                        <div class="yellow-inner inner yellow"></div>
-                        </div>
-                        <div id="startnewgame">
-                                <h6>START NEW GAME</h6>           
-                        </div> 
-                        <div id="gameover">
-                                <h3>GAME OVER</h3>           
-                        </div>        
-                        <div id="counter"></div>            
-                    </div>  
-                    <div class="aboutfield">
-                    <h4>About</h4>
-                    <h4><i id="exit" class="far fa-times-circle"></i></h4>
-                    <br>
-                    <p>This webgame is based on the classic game "Simon" from the 80's.<br>
+	<main>
+		<div class="container-fluid simon">
+			<div class="row justify-content-center no-gutters">
+				<div class="circle2"></div>
+				<div class="circle">
+					<!--The segmented circles were achieved using a slightly adjusted version of the technique I found here: https://www.custarddoughnuts.co.uk/article/2016/5/14/making-segmented-circles-and-pie-charts-in-css -->
+					<div class="origin-4-red">
+						<!--"origin*" divs are used to place the segments propperly-->
+						<div class="red-inner inner red"></div>
+						<!--The three classes are necessary because "red" applies to all red tiles in 4, 6 or 8; "inner" applies to all the tile sin the current game; "red-inner" (or variation thereof) applies only to this specific tile, and thus could also have been used as an id.-->
+					</div>
+					<div class="origin-4-blue">
+						<div class="blue-inner inner blue"></div>
+					</div>
+					<div class="origin-4-green">
+						<div class="green-inner inner green"></div>
+					</div>
+					<div class="origin-4-yellow">
+						<div class="yellow-inner inner yellow"></div>
+					</div>
+					<div id="startnewgame">
+						<h6>START NEW GAME</h6>
+					</div>
+					<div id="gameover">
+						<h3>GAME OVER</h3>
+					</div>
+					<div id="counter"></div>
+				</div>
+				<div class="aboutfield">
+					<h4>About</h4>
+					<h4><i id="exit" class="far fa-times-circle"></i></h4>
+					<br>
+					<p>This webgame is based on the classic game "Simon" from the 80's.<br>
                     In this version we've added the possibility to make the game more complex by opting for more than four tiles!<br>
                     Have fun challenging yourself!</p>
-                    <p><strong>How does it work?</strong></p>
-                    <ul>
-                    <li>Press the "Start New Game" button.</li>
-                    <li>One of the tiles will now light up.</li>
-                    <li>The white circle around the tiles indicates it's your turn: repeat the pattern that was demonstrated.</li>
-                    <li>If you've repeated the pattern correctly, the game will now repeat the pattern and add a new tile to the pattern at the end.</li>
-                    <li>Repeat!</li>
-                    </ul>
-                    <p>Try a game with more tiles if it isn't challenging enough (or find the secret challenge). Have fun!</p>
-                    <p id="authorinfo">Created by Ruben de Roos, 2020</p>
-                    </div>
-            </div>
-        </div>
-    </main>
-    <footer>
-         <div class="container-fluid">
-            <div class="row justify-content-center no-gutters">
-                 <div class="col-12">
-                            <div id="about"><h6>?</h6></div>
-                </div>          
-            </div>
-        </div>
-    </footer>
+						<p><strong>How does it work?</strong></p>
+						<ul>
+							<li>Press the "Start New Game" button.</li>
+							<li>One of the tiles will now light up.</li>
+							<li>The white circle around the tiles indicates it's your turn: repeat the pattern that was
+								demonstrated.</li>
+							<li>If you've repeated the pattern correctly, the game will now repeat the pattern and add a
+								new tile to the pattern at the end.</li>
+							<li>Repeat!</li>
+						</ul>
+						<p>Try a game with more tiles if it isn't challenging enough (or find the secret challenge).
+							Have fun!</p>
+						<p id="authorinfo">Created by Ruben de Roos, 2020</p>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<div class="container-fluid">
+			<div class="row justify-content-center no-gutters">
+				<div class="col-12">
+					<div id="about">
+						<h6>?</h6>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
 </body>
+
 </html>

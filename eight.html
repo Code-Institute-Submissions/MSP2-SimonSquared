@@ -1,112 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<!-- Please refer to index.html for code comments -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Simon Squared</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	<!-- Please refer to index.html for code comments -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Simon Squared</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
-<script
-  src="https://code.jquery.com/jquery-3.5.1.js"
-  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script>
-    <script src="assets/js/main.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"
+		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<script src="assets/js/main.js"></script>
 </head>
+
 <body>
-    <header>
-        <div class="container-fluid">
-            <div class="row justify-content-center no-gutters">
-                <div class="col-12 col-lg-6">
-                    <h1>Simon<sup><span class="f-red">S</span><span class="f-blue">q</span><span class="f-green">u</span><span class="f-yellow">a</span><span class="f-purple">r</span><span class="f-orange">e</span><span class="f-pink">d</span></sup></h1>
-                </div>
-                <div class="col-12 col-lg-3">
-                    <h5 class="turnchallenge">Difficulty</h5>
-                </div>
-                <div class="col-12 col-lg-3">
-                    <nav>
-                        <div>
-                            <div class="dif"><h6><a href="index.html">Four</a></h6></div>   
-                            <div class="dif"><h6><a href="six.html">Six</a></h6></div>     
-                            <div class="dif active"><h6><a href="eight.html">Eight</a></h6></div>                  
-                        </div>
-                    </nav>
-                </div>            
 
-            </div>
-        </div>
-    </header>
+	<header>
+		<div class="container-fluid">
+			<div class="row justify-content-center no-gutters">
+				<div class="col-12 col-lg-6">
+					<h1>Simon<sup><span class="f-red">S</span><span class="f-blue">q</span><span class="f-green">u</span><span class="f-yellow">a</span><span class="f-purple">r</span><span class="f-orange">e</span><span class="f-pink">d</span></sup>
+					</h1>
+				</div>
+				<div class="col-12 col-lg-3">
+					<h5 class="turnchallenge">Difficulty</h5>
+				</div>
+				<div class="col-12 col-lg-3">
+					<nav>
+						<div>
+							<div class="dif">
+								<h6><a href="index.html">Four</a></h6>
+							</div>
+							<div class="dif">
+								<h6><a href="six.html">Six</a></h6>
+							</div>
+							<div class="dif active">
+								<h6><a href="eight.html">Eight</a></h6>
+							</div>
+						</div>
+					</nav>
+				</div>
 
-    <main>
-      <div class="container-fluid simon">
-            <div class="row justify-content-center no-gutters">
-<div class="circle2"></div> 
-            <div class="circle">
-                <div class="origin-8-red">
-                <div class="red-8-inner inner red"></div> 
-                </div>
-                <div class="origin-8-blue">          
-                <div class="blue-8-inner inner blue"></div>
-                </div>
-                <div class="origin-8-green">          
-                <div class="green-8-inner inner green"></div>
-                </div>
-                <div class="origin-8-yellow">          
-                <div class="yellow-8-inner inner yellow"></div>
-                </div>
-                <div class="origin-8-purple">          
-                <div class="purple-8-inner inner purple"></div>
-                </div>
-                <div class="origin-8-orange">          
-                <div class="orange-8-inner inner orange"></div>
-                </div>
-                <div class="origin-8-pink">          
-                <div class="pink-8-inner inner pink"></div>
-                </div>
-                <div class="origin-8-turq">          
-                <div class="turq-8-inner inner turq"></div>
-                </div>
-                <div id="startnewgame">
-                            <h6>START NEW GAME</h6>           
-                </div> 
-                <div id="gameover">
-                            <h3>GAME OVER</h3>           
-                </div>             
-                <div id="counter"></div>        
-            </div>                
-                         <div class="aboutfield">
-                    <h4>About</h4>
-                    <h4><i id="exit" class="far fa-times-circle"></i></h4>
-                    <br>
-                    <p>This webgame is based on the classic game "Simon" from the 80's.<br>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<div class="container-fluid simon">
+			<div class="row justify-content-center no-gutters">
+				<div class="circle2"></div>
+				<div class="circle">
+					<div class="origin-8-red">
+						<div class="red-8-inner inner red"></div>
+					</div>
+					<div class="origin-8-blue">
+						<div class="blue-8-inner inner blue"></div>
+					</div>
+					<div class="origin-8-green">
+						<div class="green-8-inner inner green"></div>
+					</div>
+					<div class="origin-8-yellow">
+						<div class="yellow-8-inner inner yellow"></div>
+					</div>
+					<div class="origin-8-purple">
+						<div class="purple-8-inner inner purple"></div>
+					</div>
+					<div class="origin-8-orange">
+						<div class="orange-8-inner inner orange"></div>
+					</div>
+					<div class="origin-8-pink">
+						<div class="pink-8-inner inner pink"></div>
+					</div>
+					<div class="origin-8-turq">
+						<div class="turq-8-inner inner turq"></div>
+					</div>
+					<div id="startnewgame">
+						<h6>START NEW GAME</h6>
+					</div>
+					<div id="gameover">
+						<h3>GAME OVER</h3>
+					</div>
+					<div id="counter"></div>
+				</div>
+				<div class="aboutfield">
+					<h4>About</h4>
+					<h4><i id="exit" class="far fa-times-circle"></i></h4>
+					<br>
+					<p>This webgame is based on the classic game "Simon" from the 80's.<br>
                     In this version we've added the possibility to make the game more complex by opting for more than four tiles!<br>
                     Have fun challenging yourself!</p>
-                    <p><strong>How does it work?</strong></p>
-                    <ul>
-                    <li>Press the "Start New Game" button.</li>
-                    <li>One of the tiles will now light up.</li>
-                    <li>The white circle around the tiles indicates it's your turn: repeat the pattern that was demonstrated.</li>
-                    <li>If you've repeated the pattern correctly, the game will now repeat the pattern and add a new tile to the pattern at the end.</li>
-                    <li>Repeat!</li>
-                    </ul>
-                    <p>Try a game with more tiles if it isn't challenging enough (or find the secret challenge). Have fun!</p>
-                    <p id="authorinfo">Created by Ruben de Roos, 2020</p>
-                    </div>
-            </div>
-        </div>
-    </main>
+						<p><strong>How does it work?</strong></p>
+						<ul>
+							<li>Press the "Start New Game" button.</li>
+							<li>One of the tiles will now light up.</li>
+							<li>The white circle around the tiles indicates it's your turn: repeat the pattern that was
+								demonstrated.</li>
+							<li>If you've repeated the pattern correctly, the game will now repeat the pattern and add a
+								new tile to the pattern at the end.</li>
+							<li>Repeat!</li>
+						</ul>
+						<p>Try a game with more tiles if it isn't challenging enough (or find the secret challenge).
+							Have fun!</p>
+						<p id="authorinfo">Created by Ruben de Roos, 2020</p>
+				</div>
+			</div>
+		</div>
+	</main>
 
-    <footer>
-         <div class="container-fluid">
-            <div class="row justify-content-lg-center no-gutters">
-                 <div class="col-12">
-                    <div id="about"><h6>?</h6></div>                      
-                </div>          
-            </div>
-        </div>
-    </footer>
+	<footer>
+		<div class="container-fluid">
+			<div class="row justify-content-lg-center no-gutters">
+				<div class="col-12">
+					<div id="about">
+						<h6>?</h6>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
 </body>
+
 </html>
