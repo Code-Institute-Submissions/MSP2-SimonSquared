@@ -18,9 +18,7 @@ h3 {
   margin: 0px;
 }
 body {
-  /* background-color: lightblue; */
   background-image: radial-gradient(rgb(0, 217, 255), white);
-  /* background-image: linear-gradient(-90deg, rgb(173, 186, 230), white); */
 }
 footer {
   height: 120px;
@@ -223,7 +221,6 @@ main {
   background-color: red;
   border-top-left-radius: 100%;
 }
-
 .origin-4-blue {
   position: absolute;
   bottom: 50%;
