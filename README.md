@@ -81,7 +81,6 @@ User stories are tested by manually going through the proces of attaining the us
 
 * As a user, I want to enjoy a game of classic “Simon”.
     * The user finds the classic Simon game on the landing page. The User can also navigate to this page by clicking the menu nav button "Four".
-    On any page, click the "Book Now Button" in the footer. OR: Go to contact page, click on "form" link in the text or the "Book Now" button on the page.
     * The user can start enjoying classing Simon by pressing "Start New Game" in the center of the Simon tiles.
 
 <img src="/assets/images/simonclassic.png" height="300px">

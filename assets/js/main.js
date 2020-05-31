@@ -11,9 +11,9 @@ $(document).ready(function () {
   $("#gameover").hide(); //hides game over indicator
   $(".aboutfield").hide(); //hides aboutfield information div
   $("#counter").hide(); //hides aboutfield information div
-  $(".circle").children().children().removeClass("point"); //changes cursor properties to indicate tiles are not clickable
+  $(".inner").removeClass("point"); //changes cursor properties to indicate tiles are not clickable
   setTiles(); //determines the amount of tiles in the game.
-  let iOS = navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform); // check if browser running is iOS safari; found here: https://stackoverflow.com/questions/9038625/detect-if-device-is-ios
+  let iOS = navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform); // check if browser running is iOS safari, for switching of audio features later; found here: https://stackoverflow.com/questions/9038625/detect-if-device-is-ios
   /**SET THE AMOUNT OF TILES IN THE GAME */
   function setTiles() {
     if ($(".active").children().children().html() == "Four") {
@@ -93,7 +93,7 @@ $(document).ready(function () {
       setTimeout(function () {
         //sets time out before "player turn" circle shows, so that it shows after the tile has faded back in.
         $(".circle2").show(); //shows "player turn" indicator circle
-        $(".circle").children().children().addClass("point"); //changes cursor properties to indicate tiles are clickable
+        $(".inner").addClass("point"); //changes cursor properties to indicate tiles are clickable
         demo = 0;
       }, 1000);
     }, 1000);
