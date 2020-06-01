@@ -1,12 +1,12 @@
 $(document).ready(function () {
-  let game = []; //setting an new game
-  let counter = 0; //setting new game counter
-  let j = 0; //setting new counter for checking player clicks with game array
-  let i = 0; //setting counter for looping through array and lighting up the board
-  let demo = 0; //setting a variable that determines weather a demo is in proces (demo = 1) or not; prevents player from clicking while demo is in proces.
-  let turn = 0; //determines turning challenge is inactive
-  let turner; //creates variable to contain for setInterval function
-  let tiles; //creates a variable that contains the integer corresponding with the amount of tiles in the game.
+  let game = []; 
+  let counter = 0; 
+  let j = 0; 
+  let i = 0; 
+  let demo = 0; 
+  let turn = 0; 
+  let turner; 
+  let tiles; 
   $(".circle2").hide(); //hides the circular edge that indicates that it's the players turn
   $("#gameover").hide(); //hides game over indicator
   $(".aboutfield").hide(); //hides aboutfield information div
@@ -14,7 +14,7 @@ $(document).ready(function () {
   $(".inner").removeClass("point"); //changes cursor properties to indicate tiles are not clickable
   setTiles(); //determines the amount of tiles in the game.
   let iOS = navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform); // check if browser running is iOS safari, for switching of audio features later; found here: https://stackoverflow.com/questions/9038625/detect-if-device-is-ios
-  /**SET THE AMOUNT OF TILES IN THE GAME */
+  /** SET THE AMOUNT OF TILES IN THE GAME */
   function setTiles() {
     if ($(".active").children().children().html() == "Four") {
       tiles = 4;
@@ -41,7 +41,7 @@ $(document).ready(function () {
     } else {
       let color = "." + $(this).attr("class").split(" ")[2]; //gets last class name and appends a . in order to compare it to the colorArray
       let index;
-      colorArray.forEach(function (item) {
+      colorArray.forEach(function (item) { //finds the index in the colorArray of the color that was clicked
         if (item[0] == color) {
           index = colorArray.indexOf(item);
         }
@@ -58,13 +58,13 @@ $(document).ready(function () {
         $(this).fadeIn(250);
         j = j + 1; //increments j counter: for the next click it will check the next item in the game array
       } else {
-        angle = 0; //sets start angle for turnchallenge at 0
+        angle = 0;
         turn = 0; //determines turn challenge is inactive.
         clearInterval(turner); //clears the setInterval function which stops the rotation.
         $(".circle").css("transform", "rotate(0deg)"); //makes sure the circle and it's (text) contents is right side up
         $(".turnchallenge").html("Difficulty"); //sets the level header back to "Difficulty"
         $("#gameover").fadeIn(1000); //player made a mistake: game over is shown, prompt for new game
-        $(".circle2").hide(); //hides "player turn" indicator circle
+        $(".circle2").hide(); 
         setTimeout(function () {
           $("#counter").hide();
           $("#gameover").fadeOut(1000);
@@ -82,17 +82,17 @@ $(document).ready(function () {
     $(".inner").removeClass("point"); //changes cursor properties to indicate tiles are not clickable
     $("#counter").html(`${counter + 1} `); //sets level displayer to 0th level
     $("#counter").show(); //show level counter
-    demo = 1; //sets demo
-    game = []; //sets new game array
-    $(this).fadeOut(500); //fadeOut start button
+    demo = 1; //when demo is 1, player interaction will have no effect. This is nececarry during the demonstration part of the game.
+    game = []; 
+    $(this).fadeOut(500); 
     setTimeout(function () {
       //sets time out for demo, because we want to wait until start button has faded and give the player a second to concentrate.
-      let colorindex = Math.ceil(Math.random() * tiles); //selects a random number between 1 and 4/6/8
-      game.push(colorindex); //pushes number in to game array
+      let colorindex = Math.ceil(Math.random() * tiles); //selects a random number between 1 and 4/6/8, respective of which game it's in.
+      game.push(colorindex); 
       selectColor(colorindex); //lights up the requisite tile and chimes
       setTimeout(function () {
         //sets time out before "player turn" circle shows, so that it shows after the tile has faded back in.
-        $(".circle2").show(); //shows "player turn" indicator circle
+        $(".circle2").show(); 
         $(".inner").addClass("point"); //changes cursor properties to indicate tiles are clickable
         demo = 0;
       }, 1000);
