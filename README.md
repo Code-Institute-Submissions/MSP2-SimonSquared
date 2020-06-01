@@ -118,7 +118,10 @@ The code of the game was tested by playing it many times (each time at least unt
 
 This website was deployed using Github Pages and is now accesible here: https://maururo.github.io/MSP2-SimonSquared/
 
-This was done by: Going to the Githup repository file. Then going to "Settings". Then at the Github Pages menu selecting the master branch as the source.
+This was done by: 
+1. Going to the Githup repository file. 
+2. Going to "Settings". 
+3. At the Github Pages menu selecting the master branch as the source.
 
 One bug I ran in to after deployment was the fact that the interactive sound features did not perform well on iOS Safari. After doing some searching and reading it seemed to be a common issue because iOS Safari only allows for one audio track to play at the same time. I looked around for some work-around code but found none succesfull. Therefor I implemented code that would recognize the browser software and turn of the sound features if indeed it is iOS Safari.
 ## Credits ##
